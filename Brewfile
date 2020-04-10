@@ -18,7 +18,7 @@ brew 'tree' # List directories in a tree structure
 # Apps
 cask '1password'
 cask 'alfred'
-# cask 'bartender'
+cask 'appcleaner'
 cask 'caffeine'
 cask 'skype'
 cask 'sublime-text'
@@ -26,7 +26,6 @@ cask 'google-chrome'
 cask 'microsoft-office'
 cask 'dropbox'
 cask 'franz'
-cask 'adobe-acrobat-reader'
 cask 'skim'
 cask 'mendeley'
 cask 'r'
@@ -53,3 +52,4 @@ mas 'ToothFairy', id: 1191449274
 mas 'Todoist', id: 585829637
 mas 'Spark', id: 1176895641
 mas 'Agenda', id: 1287445660
+mas 'Highlights', id: 1498912833
