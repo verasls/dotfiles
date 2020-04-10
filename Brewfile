@@ -4,6 +4,7 @@ tap 'homebrew/cask-eid'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/bundle'
+tap 'homebrew/science'
 
 # Binaries
 brew 'bash' # Latest Bash version
@@ -21,6 +22,17 @@ cask 'alfred'
 cask 'caffeine'
 cask 'skype'
 cask 'sublime-text'
+cask 'google-chrome'
+cask 'microsoft-office'
+cask 'dropbox'
+cask 'franz'
+cask 'adobe-acrobat-reader'
+cask 'skim'
+cask 'mendeley'
+cask 'r'
+cask 'rstudio'
+cask 'spotify'
+cask 'stremio'
 
 # Fonts
 cask 'font-fira-code'
