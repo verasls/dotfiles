@@ -5,6 +5,7 @@ alias lsa="ls -la"
 
 # Directories
 alias dotfiles="cd $DOTFILES"
+alias projects="cd $HOME/Documents/Projects"
 
 # Git
 alias gst="git status"
