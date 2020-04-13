@@ -109,3 +109,6 @@ export LANG=en_US.UTF-8
 # The original version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
 export PATH
+
+# gitignore.io
+export PATHfunction gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
