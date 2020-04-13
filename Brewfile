@@ -32,6 +32,7 @@ cask 'r'
 cask 'rstudio'
 cask 'spotify'
 cask 'stremio'
+cask 'openinterminal'
 
 # Fonts
 cask 'font-fira-code'
