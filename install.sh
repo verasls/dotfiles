@@ -14,6 +14,9 @@ brew update
 brew tap homebrew/bundle
 brew bundle
 
+# Install python libraries
+./python.sh
+
 # Clone Github repositories
 ./clone.sh
 
