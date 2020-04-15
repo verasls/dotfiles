@@ -14,6 +14,7 @@ brew 'mas' # Mac App Store manager
 brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
 brew 'trash' # Manage the Trash bin
 brew 'tree' # List directories in a tree structure
+brew 'python@3.8'
 
 # Apps
 cask '1password'
@@ -33,6 +34,7 @@ cask 'rstudio'
 cask 'spotify'
 cask 'stremio'
 cask 'openinterminal'
+cask 'iterm2'
 
 # Fonts
 cask 'font-fira-code'
