@@ -8,6 +8,7 @@ tap 'homebrew/science'
 
 # Binaries
 brew 'bash' # Latest Bash version
+brew 'zsh-syntax-highlighting'
 brew 'git'
 brew 'mackup'
 brew 'mas' # Mac App Store manager
