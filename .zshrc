@@ -112,3 +112,6 @@ export PATH
 
 # gitignore.io
 export PATHfunction gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
+
+# Enable syntax highlighting
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
