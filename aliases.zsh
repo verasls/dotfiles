@@ -28,3 +28,4 @@ alias wip="commit wip"
 
 # Python
 alias python="python3"
+alias ipy="ipython"
