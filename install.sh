@@ -33,7 +33,7 @@ ln -s $HOME/.dotfiles/.vimrc $HOME/.vimrc
 
 # Removes .tmux.conf from $HOME (if it exists) and symlinks the .tmux.conf from the .dotfiles
 rm -rf $HOME/.tmux.conf
-ln -s $HOME/.dotfiles/.tmux.conf
+ln -s $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
 
 # Set macOS preferences
 # We will run this last because this will reload the shell
