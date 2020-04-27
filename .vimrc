@@ -78,3 +78,26 @@ inoremap <Left>  <ESC>:echoe "Use h"<CR>
 inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
+
+" Automatic installation of vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Specify a directory for plugins.
+call plug#begin('~/.vim/plugged')
+
+" A collection of language packs for Vim. Better syntax highlight.
+Plug 'sheerun/vim-polyglot'
+
+" Monokai pro color scheme.
+Plug 'phanviet/vim-monokai-pro'
+
+" Initialize plugin system.
+call plug#end()
+
+" Set monokai pro color scheme.
+set termguicolors
+colorscheme monokai_pro
