@@ -17,6 +17,7 @@ brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
 brew 'trash' # Manage the Trash bin
 brew 'tree' # List directories in a tree structure
 brew 'python@3.8'
+brew 'neovim'
 
 # Apps
 cask '1password'
