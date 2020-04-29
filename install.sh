@@ -17,6 +17,9 @@ brew bundle
 # Install python libraries
 ./python.sh
 
+# Install R packages
+Rscript packages.R
+
 # Clone Github repositories
 ./clone.sh
 
