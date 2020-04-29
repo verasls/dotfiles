@@ -27,9 +27,10 @@ ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
 # Symlink the Mackup config file to the home directory
 ln -s $HOME/.dotfiles/.mackup.cfg $HOME/.mackup.cfg
 
-# Removes .vimrc from $HOME (if it exists) and symlinks the .vimrc file from the .dotfiles
-rm -rf $HOME/.vimrc
-ln -s $HOME/.dotfiles/.vimrc $HOME/.vimrc
+# Removes init.vim from $HOME/.config/nvim/init.vim (if it exists) and symlinks the
+# init.vim file from the .dotfiles
+rm -rf $HOME/.config/nvim/init.vim
+ln -s $HOME/.dotfiles/init.vim $HOME/.config/nvim/init.vim
 
 # Removes .tmux.conf from $HOME (if it exists) and symlinks the .tmux.conf from the .dotfiles
 rm -rf $HOME/.tmux.conf
