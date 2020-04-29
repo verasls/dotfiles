@@ -91,7 +91,41 @@ endif
 unlet autoload_plug_path
 
 call plug#begin('~/.config/nvim/plugins')
+
+" Monokai pro color scheme
 Plug 'phanviet/vim-monokai-pro'
+
+" A collection of language packs for vim. Better syntax highlight.
+Plug 'sheerun/vim-polyglot'
+
+" turn vim into an R IDE
+Plug 'jalvesaq/Nvim-R'
+
+" Autocompletion for Nvim-R
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'gaalcaras/ncm-R'
+
+" enable ncm2 for all buffers
+autocmd BufEnter * call ncm2#enable_for_buffer()
+
+" IMPORTANT: :help Ncm2PopupOpen for more information
+set completeopt=noinsert,menuone,noselect
+
+" NOTE: you need to install completion sources to get completions. Check
+" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2'
+
+" Vim 8 only
+if !has('nvim')
+    Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+" For snippet support
+Plug 'sirver/UltiSnips'
+Plug 'ncm2/ncm2-ultisnips'
+
 call plug#end()
 
 if plug_install
@@ -102,3 +136,36 @@ unlet plug_install
 " Set monokai pro color scheme
 set termguicolors
 colorscheme monokai_pro
+
+" -----------------------------------------------------------------------------
+"  Nvim-R config
+
+" Press -- to have Nvim-R insert the assignment operator (<-)
+let R_assign_map = "--"
+
+" Don't expand a dataframe to show columns by default (\ro)
+let R_obj_opendf = 0
+
+" Set console width
+let R_rconsole_width = 90
+
+" Press the space bar to send lines and selection to R console
+vmap <Space> <Plug>RESendSelection
+nmap <Space> <Plug>RESendParagraph
+
+" Keybind > to the pipe operator (%>%)
+autocmd FileType r inoremap <buffer> > <Esc>:normal! a %>% <CR>a
+autocmd FileType rmd inoremap <buffer> > <Esc>:normal! a %>% <CR>a
+
+" Set tab identation to 2 spaces in .R files
+autocmd FileType r setlocal sw=2
+
+" Press enter key to trigger snippet expansion
+" The parameters are the same as `:help feedkeys()`
+inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
+
+" c-j c-k for moving in snippet
+" let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+let g:UltiSnipsRemoveSelectModeMappings = 0
