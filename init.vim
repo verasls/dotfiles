@@ -14,6 +14,9 @@ set nocompatible
 " Turn on syntax highlighting.
 syntax on
 
+" Access system clipboard
+set clipboard=unnamed
+
 " Disable the default Vim startup message.
 set shortmess+=I
 
