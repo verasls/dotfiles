@@ -6,6 +6,9 @@ echo "Installing python libraries..."
 pip3 install --upgrade pip
 
 # Install libraries
+pip3 install jedi
+pip3 install flake8
+pip3 install autopep8
 pip3 install numpy
 pip3 install scipy
 pip3 install astropy
