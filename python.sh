@@ -13,3 +13,4 @@ pip3 install pandas
 pip3 install dask[complete]
 pip3 install ipython
 pip3 install jupyter
+pip3 install neovim
