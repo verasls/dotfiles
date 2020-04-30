@@ -95,6 +95,9 @@ call plug#begin('~/.config/nvim/plugins')
 " Monokai pro color scheme
 Plug 'phanviet/vim-monokai-pro'
 
+" Auto-pair plugin
+Plug 'tmsvg/pear-tree'
+
 " A collection of language packs for vim. Better syntax highlight.
 Plug 'sheerun/vim-polyglot'
 
