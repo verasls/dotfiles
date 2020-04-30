@@ -2,6 +2,7 @@
 alias reloadshell="source $HOME/.zshrc"
 alias c="clear"
 alias lsa="ls -la"
+alias vim="nvim"
 
 # Directories
 alias dotfiles="cd $DOTFILES"
