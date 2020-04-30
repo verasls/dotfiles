@@ -1,6 +1,14 @@
+# Dev packages
+install.packages(c(
+  "devtools", "roxygen2", "testthat", "knitr"
+  ),
+  repos = "http://cran.dcc.fc.up.pt/")
+)
+
+# Other packages
 packages <- c(
   # Main
-  "tidyverse", "tidymodels", "here", "Rcpp", "RSQlite", "devtools",
+  "tidyverse", "tidymodels", "here", "Rcpp", "RSQlite",
   # Stats
   "nlme", "lme4", "emmeans", "car",
   # Accelerometry
