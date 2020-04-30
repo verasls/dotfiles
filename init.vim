@@ -98,16 +98,24 @@ Plug 'phanviet/vim-monokai-pro'
 " Auto-pair plugin
 Plug 'tmsvg/pear-tree'
 
+" Better Visual Guide
+Plug 'Yggdroot/indentLine'
+
+" Syntax check
+Plug 'w0rp/ale'
+
 " A collection of language packs for vim. Better syntax highlight.
 Plug 'sheerun/vim-polyglot'
 
 " turn vim into an R IDE
 Plug 'jalvesaq/Nvim-R'
 
-" Autocompletion for Nvim-R
+" Autocompletion
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
 Plug 'gaalcaras/ncm-R'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-jedi'
 
 " enable ncm2 for all buffers
 autocmd BufEnter * call ncm2#enable_for_buffer()
@@ -140,9 +148,15 @@ unlet plug_install
 set termguicolors
 colorscheme monokai_pro
 
-" -----------------------------------------------------------------------------
-"  Nvim-R config
+" Ale
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_linters = {'python': ['flake8']}
 
+" Nvim-R
 " Press -- to have Nvim-R insert the assignment operator (<-)
 let R_assign_map = "--"
 
