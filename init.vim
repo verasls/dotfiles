@@ -132,6 +132,7 @@ Plug 'w0rp/ale'
 
 " A collection of language packs for vim. Better syntax highlight.
 Plug 'sheerun/vim-polyglot'
+Plug 'raingo/vim-matlab'
 
 " Markdown syntax highlight
 " tabular plugin is used to format tables
