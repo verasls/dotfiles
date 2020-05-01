@@ -1,5 +1,5 @@
 " Comments in Vimscript start with a `"`.
-
+"
 " If you open this file in Vim, it'll be syntax highlighted for you.
 
 " Vim is based on Vi. Setting `nocompatible` switches from the default
@@ -62,9 +62,16 @@ nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
 " Disable audible bell because it's annoying.
 set noerrorbells visualbell t_vb=
 
+" Enable filetype plugin
+filetype plugin on
+
 " Enable mouse support. You should avoid relying on this too much, but it can
 " sometimes be convenient.
 set mouse+=a
+
+" Autosave when lose focus
+au FocusLost * silent! wa
+set autowriteall
 
 " Facilitate split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -107,8 +114,18 @@ Plug 'phanviet/vim-monokai-pro'
 " Auto-pair plugin
 Plug 'tmsvg/pear-tree'
 
+" Insert comment
+Plug 'preservim/nerdcommenter'
+
 " Better Visual Guide
 Plug 'Yggdroot/indentLine'
+
+" Multiple cursors
+Plug 'terryma/vim-multiple-cursors'
+
+" File tree
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Syntax check
 Plug 'w0rp/ale'
@@ -167,6 +184,27 @@ unlet plug_install
 " Set monokai pro color scheme
 set termguicolors
 colorscheme monokai_pro
+
+" Insert comments config
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Shortcut to open nerdtree
+map <C-q> :NERDTreeToggle<CR>
+" Show hidden files by default
+let NERDTreeShowHidden=1
+
+" Enable pear-tree smart pairs
+let g:pear_tree_smart_openers = 1
+let g:pear_tree_smart_closers = 1
+let g:pear_tree_smart_backspace = 1
+" Smart pair functions timeout after 60ms:
+let g:pear_tree_timeout = 60
 
 " Ale
 let g:ale_lint_on_enter = 0
