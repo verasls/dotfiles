@@ -34,6 +34,9 @@ set relativenumber
 " Always show the status line at the bottom, even if you only have one window open.
 set laststatus=2
 
+" Decrease updatetime
+set updatetime=100
+
 " The backspace key has slightly unintuitive behavior by default. For example,
 " by default, you can't backspace before the insertion point set with 'i'.
 " This configuration makes backspace behave more reasonably, in that you can
@@ -138,6 +141,9 @@ Plug 'plasticboy/vim-markdown'
 
 " Markdown preview
 Plug 'JamshedVesuna/vim-markdown-preview'
+
+" Git-gutter
+Plug 'airblade/vim-gitgutter'
 
 " turn vim into an R IDE
 Plug 'jalvesaq/Nvim-R'
