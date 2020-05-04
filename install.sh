@@ -27,6 +27,10 @@ Rscript packages.R
 rm -rf $HOME/.zshrc
 ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
 
+# Removes .gitignore_global from $HOME (if it exists) and symlinks the .gitignore_global file from the .dotfiles
+rm -rf $HOME/.gitignore_global
+ln -s $HOME/.dotfiles/.gitignore_global $HOME/.gitignore_global
+
 # Symlink the Mackup config file to the home directory
 ln -s $HOME/.dotfiles/.mackup.cfg $HOME/.mackup.cfg
 
