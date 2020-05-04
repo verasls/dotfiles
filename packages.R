@@ -1,6 +1,6 @@
 # Dev packages
 install.packages(c(
-  "devtools", "roxygen2", "testthat", "knitr"
+  "devtools", "roxygen2", "testthat", "knitr", "shiny"
   ),
   repos = "http://cran.dcc.fc.up.pt/")
 )
