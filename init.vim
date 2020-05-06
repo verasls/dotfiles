@@ -113,9 +113,6 @@ call plug#begin('~/.config/nvim/plugins')
 " Monokai pro color scheme
 Plug 'phanviet/vim-monokai-pro'
 
-" Auto-pair plugin
-Plug 'tmsvg/pear-tree'
-
 " Insert comment
 Plug 'preservim/nerdcommenter'
 
