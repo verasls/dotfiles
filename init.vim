@@ -75,6 +75,10 @@ set mouse+=a
 " Autosave when lose focus
 au FocusLost * silent! wa
 set autowriteall
+ 
+" Put new buffers on the right (vertical) or bottom (horizontal) of the screen
+set splitright
+set splitbelow
 
 " Facilitate split navigations
 nnoremap <C-J> <C-W><C-J>
