@@ -2,7 +2,7 @@
 install.packages(c(
   "devtools", "roxygen2", "testthat", "knitr", "shiny"
   ),
-  repos = "http://cran.dcc.fc.up.pt/")
+  repos = "http://cran.us.r-project.org")
 )
 
 # Other packages
@@ -15,6 +15,6 @@ packages <- c(
   "PhysicalActivity", "GGIR"
 )
 
-install.packages(packages, repos = "http://cran.dcc.fc.up.pt/")
+install.packages(packages, repos = "http://cran.us.r-project.org")
 
 devtools::install_github("THLfi/read.gt3x", "jalvesaq/colorout")
