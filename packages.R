@@ -9,7 +9,7 @@ install.packages(c(
 packages <- c(
   # Main
   "tidyverse", "tidymodels", "here", "Rcpp", "RSQlite",
-  "cowplot", "janitor",
+  "cowplot", "janitor", "lobstr",
   # Stats
   "nlme", "lme4", "emmeans", "car",
   # Accelerometry
