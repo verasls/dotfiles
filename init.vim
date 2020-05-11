@@ -224,8 +224,9 @@ let R_assign_map = "--"
 " Don't expand a dataframe to show columns by default (\ro)
 let R_obj_opendf = 0
 
-" Set console width
-let R_rconsole_width = 90
+" Set console width to be half the vim window width
+let R_rconsole_width = winwidth(0) / 2
+autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
 
 " Press the space bar to send lines and selection to R console
 vmap <Space> <Plug>RESendSelection
