@@ -239,6 +239,12 @@ autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>% <CR>a
 " Set tab identation to 2 spaces in .R files
 autocmd FileType r setlocal sw=2
 
+" R output is highlighted with current colorscheme
+let g:rout_follow_colorscheme = 1
+
+" R commands in R output are highlighted
+let g:Rout_more_colors = 1
+
 " Press enter key to trigger snippet expansion
 " The parameters are the same as `:help feedkeys()`
 inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
