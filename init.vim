@@ -149,6 +149,11 @@ Plug 'airblade/vim-gitgutter'
 " turn vim into an R IDE
 Plug 'jalvesaq/Nvim-R'
 
+" Rmarkdown
+Plug 'vim-pandoc/vim-rmarkdown'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+
 " Autocompletion
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
@@ -194,7 +199,7 @@ let g:NERDSpaceDelims = 1
 " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
 " Allow commenting and inverting empty lines (useful when commenting a region)
-let g:NERDCommentEmptyLines = 1" Enable trimming of trailing whitespace when uncommenting
+let g:NERDCommentEmptyLines = 1 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
 " Shortcut to open nerdtree
