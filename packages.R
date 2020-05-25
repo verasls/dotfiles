@@ -11,6 +11,6 @@ packages <- c(
   "PhysicalActivity", "GGIR"
 )
 
-install.packages(packages, repos = "http://cran.us.r-project.org")
+install.packages(packages, repos = "https://cran.rstudio.com/")
 
 devtools::install_github("THLfi/read.gt3x", "jalvesaq/colorout")
