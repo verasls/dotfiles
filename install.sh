@@ -43,6 +43,10 @@ ln -s $HOME/.dotfiles/init.vim $HOME/.config/nvim/init.vim
 rm -rf $HOME/.tmux.conf
 ln -s $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
 
+# Removes .Rprofile from $HOME (if it exists) and symlinks the .Rprofile from the .dotfiles
+rm -rf $HOME/.Rprofile
+ln -s $HOME/.dotfiles/.Rprofile $HOME/.Rprofile
+
 # Set macOS preferences
 # We will run this last because this will reload the shell
 source .macos
