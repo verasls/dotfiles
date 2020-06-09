@@ -20,6 +20,7 @@ brew 'python@3.8'
 brew 'neovim'
 brew 'grip'
 brew 'markdown'
+brew 'qpdf'
 
 # Apps
 cask '1password'
