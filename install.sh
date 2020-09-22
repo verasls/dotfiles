@@ -50,6 +50,14 @@ ln -s $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
 rm -rf $HOME/.Rprofile
 ln -s $HOME/.dotfiles/.Rprofile $HOME/.Rprofile
 
+# Install daRkStudio theme
+git clone git@github.com:verasls/daRkStudio.git $HOME/Desktop/daRkStudio
+cp "$HOME/Desktop/daRkStudio/custom_styles.css" /
+  "/Applications/RStudio.app/Contents/Resources/www/custom_styles.css"
+cp "$HOME/Desktop/daRkStudio/index.htm" /
+  "/Applications/RStudio.app/Contents/Resources/www/index.htm"
+rm -rf $HOME/Desktop/daRkStudio
+
 # Set macOS preferences
 # We will run this last because this will reload the shell
 source .macos
