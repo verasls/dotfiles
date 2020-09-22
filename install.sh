@@ -36,6 +36,9 @@ ln -s $HOME/.dotfiles/.mackup.cfg $HOME/.mackup.cfg
 
 # Removes init.vim from $HOME/.config/nvim/init.vim (if it exists) and symlinks the
 # init.vim file from the .dotfiles
+if [ ! -d "$HOME/.config/nvim" ]; then
+  mkdir -p $HOME/.config/nvim
+fi
 rm -rf $HOME/.config/nvim/init.vim
 ln -s $HOME/.dotfiles/init.vim $HOME/.config/nvim/init.vim
 
