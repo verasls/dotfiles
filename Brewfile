@@ -23,7 +23,6 @@ brew 'markdown'
 brew 'qpdf'
 
 # Apps
-cask '1password'
 cask 'alfred'
 cask 'appcleaner'
 cask 'caffeine'
@@ -32,6 +31,7 @@ cask 'sublime-text'
 cask 'mactex-no-gui'
 cask 'google-chrome'
 cask 'microsoft-office'
+cask 'microsoft-teams'
 cask 'dropbox'
 cask 'franz'
 cask 'skim'
@@ -62,4 +62,3 @@ mas 'ToothFairy', id: 1191449274
 mas 'Todoist', id: 585829637
 mas 'Spark', id: 1176895641
 mas 'Agenda', id: 1287445660
-mas 'Highlights', id: 1498912833
