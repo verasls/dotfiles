@@ -1,6 +1,8 @@
 # Path to your dotfiles.
 export DOTFILES=$HOME/.dotfiles
 
+ZSH_DISABLE_COMPFIX=true
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -115,3 +117,6 @@ export PATHfunction gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
 
 # Enable syntax highlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
