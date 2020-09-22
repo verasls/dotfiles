@@ -12,4 +12,4 @@ options(
   warnPartialMatchArgs = TRUE
 )
 
-options(max.print = 100)
+options(max.print = 9999)
