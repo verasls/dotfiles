@@ -11,6 +11,14 @@
 " `vim -u foo`).
 set nocompatible
 
+" Set default values for ts and sw
+set ts=4
+set sw=4
+
+" Display tabs
+set list
+set listchars=tab:>-
+
 " Turn on syntax highlighting.
 syntax on
 
@@ -129,8 +137,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " Syntax check
 Plug 'w0rp/ale'
 
-" A collection of language packs for vim. Better syntax highlight.
-Plug 'sheerun/vim-polyglot'
+" A better syntax highlight for matlab
 Plug 'raingo/vim-matlab'
 
 " Markdown syntax highlight
@@ -188,6 +195,9 @@ if plug_install
     PlugInstall --sync
 endif
 unlet plug_install
+
+" Disable autoindent from polyglot plugin
+let g:polyglot_disabled = ['autoindent']
 
 " Set monokai pro color scheme
 set termguicolors
@@ -259,7 +269,6 @@ let g:UltiSnipsExpandTrigger="<tab>"  " use <Tab> trigger autocompletion
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
-
 " Markdown syntax highlight
 " disable header folding
 let g:vim_markdown_folding_disabled = 1
@@ -275,6 +284,3 @@ let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1  " for YAML format
 let g:vim_markdown_toml_frontmatter = 1  " for TOML format
 let g:vim_markdown_json_frontmatter = 1  " for JSON format
-
-" Set tab identation to 4 spaces in .m file
-autocmd FileType matlab setlocal tabstop=4 shiftwidth=4 
