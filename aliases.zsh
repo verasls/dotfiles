@@ -10,6 +10,7 @@ alias prj="cd $HOME/Documents/Projects"
 
 # Git
 alias gst="git status"
+alias gs="git status"
 alias gl="git log"
 alias gb="git branch"
 alias gc="git checkout"
