@@ -234,7 +234,7 @@ let g:ale_linters = {'python': ['flake8']}
 
 " Nvim-R
 " Press -- to have Nvim-R insert the assignment operator (<-)
-let R_assign_map = "--"
+let R_assign_map = ",,"
 
 " Don't expand a dataframe to show columns by default (\ro)
 let R_obj_opendf = 0
