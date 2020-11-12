@@ -233,8 +233,10 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_linters = {'python': ['flake8']}
 
 " Nvim-R
-" Press -- to have Nvim-R insert the assignment operator (<-)
+" Press ,, to have Nvim-R insert the assignment operator (<-)
 let R_assign_map = ",,"
+
+let R_show_args = 1
 
 " Don't expand a dataframe to show columns by default (\ro)
 let R_obj_opendf = 0
@@ -247,15 +249,12 @@ autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
 vmap <Space> <Plug>RESendSelection
 nmap <Space> <Plug>RESendParagraph
 
-" Keybind > to the pipe operator (%>%)
+" Keybind >> to the pipe operator (%>%)
 autocmd FileType r inoremap <buffer> >> <Esc>:normal! a %>% <CR>a
 autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>% <CR>a
 
 " Set tab identation to 2 spaces in .R files
 autocmd FileType r setlocal sw=2
-
-" R output is highlighted with current colorscheme
-let g:rout_follow_colorscheme = 1
 
 " R commands in R output are highlighted
 let g:Rout_more_colors = 1
