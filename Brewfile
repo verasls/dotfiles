@@ -5,6 +5,7 @@ tap 'homebrew/cask-fonts'
 tap 'homebrew/cask-versions'
 tap 'homebrew/bundle'
 tap 'homebrew/science'
+tap 'buo/cask-upgrade'
 
 # Binaries
 brew 'bash' # Latest Bash version
