@@ -118,76 +118,23 @@ unlet autoload_plug_path
 
 call plug#begin('~/.config/nvim/plugins')
 
-" Monokai pro color scheme
-Plug 'phanviet/vim-monokai-pro'
-
-" Insert comment
-Plug 'preservim/nerdcommenter'
-
-" Better Visual Guide
-Plug 'Yggdroot/indentLine'
-
-" Multiple cursors
-Plug 'terryma/vim-multiple-cursors'
-
-" File tree
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" Syntax check
-Plug 'w0rp/ale'
-
-" A better syntax highlight for matlab
-Plug 'raingo/vim-matlab'
-
-" Markdown syntax highlight
-" tabular plugin is used to format tables
-Plug 'godlygeek/tabular'
-" JSON front matter highlight plugin
-Plug 'elzr/vim-json'
-Plug 'plasticboy/vim-markdown'
-
-" Markdown preview
-Plug 'JamshedVesuna/vim-markdown-preview'
-
-" Git-gutter
-Plug 'airblade/vim-gitgutter'
-
-" turn vim into an R IDE
 Plug 'jalvesaq/Nvim-R'
-
-" Rmarkdown
-Plug 'vim-pandoc/vim-rmarkdown'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-
-" Autocompletion
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
-Plug 'gaalcaras/ncm-R'
+Plug 'preservim/nerdtree'
+Plug 'Raimondi/delimitMate'
+Plug 'patstockwell/vim-monokai-tasty'
+Plug 'itchyny/lightline.vim'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-jedi'
-
-" enable ncm2 for all buffers
-autocmd BufEnter * call ncm2#enable_for_buffer()
-
-" IMPORTANT: :help Ncm2PopupOpen for more information
-set completeopt=noinsert,menuone,noselect
-
-" NOTE: you need to install completion sources to get completions. Check
-" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
-Plug 'ncm2/ncm2-bufword'
-Plug 'ncm2/ncm2'
-
-" Vim 8 only
-if !has('nvim')
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-" For snippet support
-Plug 'sirver/UltiSnips'
-Plug 'ncm2/ncm2-ultisnips'
-Plug 'honza/vim-snippets'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdcommenter'
+Plug 'Yggdroot/indentLine'
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'w0rp/ale'
+Plug 'raingo/vim-matlab'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
@@ -196,12 +143,21 @@ if plug_install
 endif
 unlet plug_install
 
-" Disable autoindent from polyglot plugin
-let g:polyglot_disabled = ['autoindent']
+" Plugin Related Settings
 
-" Set monokai pro color scheme
-set termguicolors
-colorscheme monokai_pro
+" NCM2
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
+
+" Monokai-tasty
+let g:vim_monokai_tasty_italic = 1
+colorscheme vim-monokai-tasty
+
+" LightLine.vim 
+set laststatus=2
+let g:lightline = {
+   \ 'colorscheme':'monokai_tasty',
+   \ }
 
 " Insert comments config
 " Add spaces after comment delimiters by default
@@ -216,13 +172,6 @@ let g:NERDTrimTrailingWhitespace = 1
 map <C-q> :NERDTreeToggle<CR>
 " Show hidden files by default
 let NERDTreeShowHidden=1
-
-" Enable pear-tree smart pairs
-let g:pear_tree_smart_openers = 1
-let g:pear_tree_smart_closers = 1
-let g:pear_tree_smart_backspace = 1
-" Smart pair functions timeout after 60ms:
-let g:pear_tree_timeout = 60
 
 " Ale
 let g:ale_lint_on_enter = 0
@@ -258,28 +207,3 @@ autocmd FileType r setlocal sw=2
 
 " R commands in R output are highlighted
 let g:Rout_more_colors = 1
-
-" Press enter key to trigger snippet expansion
-" The parameters are the same as `:help feedkeys()`
-inoremap <silent> <expr> <CR> ncm2_ultisnips#expand_or("\<CR>", 'n')
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"  " use <Tab> trigger autocompletion
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-
-" Markdown syntax highlight
-" disable header folding
-let g:vim_markdown_folding_disabled = 1
-
-" do not use conceal feature, the implementation is not so good
-let g:vim_markdown_conceal = 0
-
-" disable math tex conceal feature
-let g:tex_conceal = ""
-let g:vim_markdown_math = 1
-
-" support front matter of various format
-let g:vim_markdown_frontmatter = 1  " for YAML format
-let g:vim_markdown_toml_frontmatter = 1  " for TOML format
-let g:vim_markdown_json_frontmatter = 1  " for JSON format
