@@ -2,6 +2,7 @@
 "
 " If you open this file in Vim, it'll be syntax highlighted for you.
 
+
 " Vim is based on Vi. Setting `nocompatible` switches from the default
 " Vi-compatibility mode and enables useful Vim functionality. This
 " configuration option turns out not to be necessary for the file named
@@ -105,6 +106,11 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up>    :echoe "Use k"<CR>
 nnoremap <Down>  :echoe "Use j"<CR>
 
+" Remap buffer and tabs commands
+map bn :bn<CR>
+map bp :bp<CR>
+map tc :tabclose<CR>
+
 " Automatic instalation of vim-plug
 let plug_install = 0
 let autoload_plug_path = stdpath('config') . '/autoload/plug.vim'
@@ -184,8 +190,6 @@ let g:ale_linters = {'python': ['flake8']}
 " Nvim-R
 " Press ,, to have Nvim-R insert the assignment operator (<-)
 let R_assign_map = ",,"
-
-let R_show_args = 1
 
 " Don't expand a dataframe to show columns by default (\ro)
 let R_obj_opendf = 0
