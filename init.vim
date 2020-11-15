@@ -111,6 +111,12 @@ map bn :bn<CR>
 map bp :bp<CR>
 map tc :tabclose<CR>
 
+" Files & Backup
+set nobackup                     " Turn off backup.
+set nowb                         " Don't backup before overwriting a file.
+set noswapfile                   " Don't create a swap file.
+set ffs=unix,dos,mac             " Use Unix as the standard file type.
+
 " Automatic instalation of vim-plug
 let plug_install = 0
 let autoload_plug_path = stdpath('config') . '/autoload/plug.vim'
