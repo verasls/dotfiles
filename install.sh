@@ -27,6 +27,12 @@ Rscript packages.R
 rm -rf $HOME/.zshrc
 ln -s $HOME/.dotfiles/.zshrc $HOME/.zshrc
 
+# Removes .p10k.zsh from $HOME (if it exists) and symlinks the .zshrc file from the .dotfiles
+rm -rf $HOME/.p10k.zsh
+ln -s $HOME/.dotfiles/.p10k.zsh $HOME/.p10k.zsh
+# Install powerlevel10k
+echo 'source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
+
 # Removes .gitignore_global from $HOME (if it exists) and symlinks the .gitignore_global file from the .dotfiles
 rm -rf $HOME/.gitignore_global
 ln -s $HOME/.dotfiles/.gitignore_global $HOME/.gitignore_global
