@@ -150,6 +150,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
 Plug 'raingo/vim-matlab'
 Plug 'airblade/vim-gitgutter'
+Plug 'qpkorr/vim-bufkill'
 
 call plug#end()
 
