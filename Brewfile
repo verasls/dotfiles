@@ -22,6 +22,7 @@ brew 'neovim'
 brew 'grip'
 brew 'markdown'
 brew 'qpdf'
+brew 'romkatv/powerlevel10k/powerlevel10k'
 
 # Apps
 cask 'alfred'
