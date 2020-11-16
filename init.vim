@@ -2,7 +2,6 @@
 "
 " If you open this file in Vim, it'll be syntax highlighted for you.
 
-
 " Vim is based on Vi. Setting `nocompatible` switches from the default
 " Vi-compatibility mode and enables useful Vim functionality. This
 " configuration option turns out not to be necessary for the file named
@@ -151,6 +150,7 @@ Plug 'w0rp/ale'
 Plug 'raingo/vim-matlab'
 Plug 'airblade/vim-gitgutter'
 Plug 'qpkorr/vim-bufkill'
+Plug 'vim-python/python-syntax'
 
 call plug#end()
 
@@ -221,3 +221,6 @@ autocmd FileType r setlocal sw=2
 
 " R commands in R output are highlighted
 let g:Rout_more_colors = 1
+
+" Python syntax highlighting
+let g:python_highlight_all = 1
