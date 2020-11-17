@@ -108,6 +108,7 @@ nnoremap <Down>  :echoe "Use j"<CR>
 " Remap buffer and tabs commands
 map bn :bn<CR>
 map bp :bp<CR>
+map bx :BD<CR>
 map tc :tabclose<CR>
 
 " Files & Backup
