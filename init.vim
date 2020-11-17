@@ -108,7 +108,7 @@ nnoremap <Down>  :echoe "Use j"<CR>
 " Remap buffer and tabs commands
 map bn :bn<CR>
 map bp :bp<CR>
-map bx :BD<CR>
+map bx :BD!<CR>
 map tc :tabclose<CR>
 
 " Files & Backup
@@ -218,7 +218,7 @@ autocmd FileType r inoremap <buffer> >> <Esc>:normal! a %>%<CR>a
 autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a
 
 " Set tab identation to 2 spaces in .R files
-autocmd FileType r setlocal sw=2
+autocmd FileType r setlocal ts=2 sw=2 expandtab
 
 " R commands in R output are highlighted
 let g:Rout_more_colors = 1
