@@ -152,6 +152,7 @@ Plug 'raingo/vim-matlab'
 Plug 'airblade/vim-gitgutter'
 Plug 'qpkorr/vim-bufkill'
 Plug 'vim-python/python-syntax'
+Plug 'luochen1990/rainbow'
 
 call plug#end()
 
@@ -225,3 +226,6 @@ let g:Rout_more_colors = 1
 
 " Python syntax highlighting
 let g:python_highlight_all = 1
+
+" Rainbow parentheses
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
