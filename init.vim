@@ -153,6 +153,9 @@ Plug 'airblade/vim-gitgutter'
 Plug 'qpkorr/vim-bufkill'
 Plug 'vim-python/python-syntax'
 Plug 'luochen1990/rainbow'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-rmarkdown'
 
 call plug#end()
 
@@ -223,6 +226,10 @@ autocmd FileType r setlocal ts=2 sw=2 expandtab
 
 " R commands in R output are highlighted
 let g:Rout_more_colors = 1
+
+" vim-pandoc and vim-rmarkdown
+let g:pandoc#modules#disabled = ["folding", "spell"]
+let g:pandoc#syntax#conceal#use = 0
 
 " Python syntax highlighting
 let g:python_highlight_all = 1
