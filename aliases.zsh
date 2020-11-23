@@ -3,6 +3,9 @@ alias reloadshell="source $HOME/.zshrc"
 alias c="clear"
 alias lsa="ls -la"
 alias vim="nvim"
+alias tm="tmux"
+alias tml="tmux list-sessions"
+alias tmk="tmux kill-session"
 
 # Directories
 alias dotfiles="cd $DOTFILES"
