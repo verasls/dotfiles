@@ -213,6 +213,11 @@ let R_obj_opendf = 0
 let R_rconsole_width = winwidth(0) / 2
 autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
 
+" Set position of R documentation and object browser
+let R_nvimpager = 'horizontal'
+let R_objbr_place = 'script,below'
+let R_objbr_h = 20
+
 " Press the space bar to send lines and selection to R console
 vmap <Space> <Plug>RESendSelection
 nmap <Space> <Plug>RESendParagraph
