@@ -117,8 +117,11 @@ set nowb                         " Don't backup before overwriting a file.
 set noswapfile                   " Don't create a swap file.
 set ffs=unix,dos,mac             " Use Unix as the standard file type.
 
-"Remove all trailing whitespace by pressing F5
+" Remove all trailing whitespace by pressing F5
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+" Remove search highligh
+map nh :nohlsearch<CR>
 
 " Automatic instalation of vim-plug
 let plug_install = 0
