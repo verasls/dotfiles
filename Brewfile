@@ -27,7 +27,6 @@ brew 'romkatv/powerlevel10k/powerlevel10k'
 # Apps
 cask 'alfred'
 cask 'appcleaner'
-cask 'caffeine'
 cask 'skype'
 cask 'sublime-text'
 cask 'mactex-no-gui'
@@ -44,6 +43,7 @@ cask 'spotify'
 cask 'stremio'
 cask 'openinterminal'
 cask 'iterm2'
+cask 'dozer'
 
 # Fonts
 cask 'font-fira-code'
@@ -64,3 +64,4 @@ mas 'ToothFairy', id: 1191449274
 mas 'Todoist', id: 585829637
 mas 'Spark', id: 1176895641
 mas 'Agenda', id: 1287445660
+mas 'Amphetamine', id: 937984704
