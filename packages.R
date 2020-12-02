@@ -1,16 +1,23 @@
+# Install and setup pak
+install.packages("pak", repos = "https://cran.rstudio.com/")
+pak::pak_setup()
+
 packages <- c(
   # Dev
   "devtools", "roxygen2", "testthat", "knitr", "shiny",
-  "microbenchmark", "sloop",
+  "microbenchmark", "sloop", "lintr",
   # Main
   "tidyverse", "tidymodels", "here", "Rcpp", "RSQlite",
-  "cowplot", "janitor", "lobstr", "data.table", "fst",
+  "patchwork", "ragg", "janitor", "lobstr", "data.table", "fst",
   # Stats
-  "nlme", "lme4", "emmeans", "car", "MASS",
+  "nlme", "lme4", "lmerTest", "emmeans", "car", "MASS",
   # Accelerometry
-  "PhysicalActivity", "GGIR"
+  "PhysicalActivity", "GGIR",
+  # Github
+  "THLfi/read.gt3x", "jalvesaq/colorout", "rileytwo/darkstudio"
 )
 
-install.packages(packages, repos = "https://cran.rstudio.com/")
+pak::pkg_install(packages)
 
-devtools::install_github("THLfi/read.gt3x", "jalvesaq/colorout")
+# Config RStudio theme
+darkstudio::activate()
