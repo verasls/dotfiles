@@ -230,8 +230,9 @@ nmap <Space> <Plug>RESendParagraph
 autocmd FileType r inoremap <buffer> >> <Esc>:normal! a %>%<CR>a
 autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a
 
-" Set tab identation to 2 spaces in .R files
+" Set tab identation to 2 spaces in .R and .Rmd files
 autocmd FileType r setlocal ts=2 sw=2 expandtab
+autocmd FileType rmd setlocal ts=2 sw=2 expandtab
 
 " R commands in R output are highlighted
 let g:Rout_more_colors = 1
