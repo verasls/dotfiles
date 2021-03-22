@@ -241,9 +241,14 @@ let g:Rout_more_colors = 1
 let g:pandoc#modules#disabled = ["folding", "spell"]
 let g:pandoc#syntax#conceal#use = 0
 let vim_markdown_preview_github = 1
+" Also disable indentLine plugin for markdown and Rmd files as this
+" plugin set conceallevel = 2
+autocmd FileType markdown let g:indentLine_enabled = 0
+autocmd FileType rmd let g:indentLine_enabled = 0
 
 " Python syntax highlighting
 let g:python_highlight_all = 1
 
 " Rainbow parentheses
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
