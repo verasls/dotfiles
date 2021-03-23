@@ -17,7 +17,7 @@ brew 'mas' # Mac App Store manager
 brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
 brew 'trash' # Manage the Trash bin
 brew 'tree' # List directories in a tree structure
-brew 'python@3.8'
+brew 'python@3.9'
 brew 'neovim'
 brew 'grip'
 brew 'markdown'
@@ -36,7 +36,7 @@ cask 'microsoft-teams'
 cask 'dropbox'
 cask 'franz'
 cask 'skim'
-cask 'mendeley-reference-manager'
+cask 'mendeley'
 cask 'r'
 cask 'rstudio'
 cask 'spotify'
@@ -44,6 +44,7 @@ cask 'stremio'
 cask 'openinterminal'
 cask 'iterm2'
 cask 'dozer'
+cask 'zoom'
 
 # Fonts
 cask 'font-fira-code'
@@ -61,7 +62,5 @@ mas 'Spark', id: 1176895641
 mas '1Password', id: 1333542190
 mas 'Magnet', id: 441258766
 mas 'ToothFairy', id: 1191449274
-mas 'Todoist', id: 585829637
-mas 'Spark', id: 1176895641
 mas 'Agenda', id: 1287445660
 mas 'Amphetamine', id: 937984704
