@@ -224,9 +224,9 @@ let R_objbr_h = 20
 vmap <Space> <Plug>RESendSelection
 nmap <Space> <Plug>RESendParagraph
 
-" Keybind >> to the pipe operator (%>%)
-autocmd FileType r inoremap <buffer> >> <Esc>:normal! a %>%<CR>a
-autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a
+" Keybind >> to the pipe operator (|>)
+autocmd FileType r inoremap <buffer> >> <Esc>:normal! a <Bar>><CR>a
+autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a <Bar>><CR>a
 
 " Set tab identation to 2 spaces in .R and .Rmd files
 autocmd FileType r setlocal ts=2 sw=2 expandtab
