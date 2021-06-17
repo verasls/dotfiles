@@ -14,6 +14,7 @@ set nocompatible
 " Set default values for ts and sw
 set ts=4
 set sw=4
+set expandtab
 
 " Display tabs
 set list
@@ -124,16 +125,6 @@ nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 map nh :nohlsearch<CR>
 
 " Automatic instalation of vim-plug
-let plug_install = 0
-let autoload_plug_path = stdpath('config') . '/autoload/plug.vim'
-if !filereadable(autoload_plug_path)
-    silent exe '!curl -fL --create-dirs -o ' . autoload_plug_path . 
-        \ ' https://raw.github.com/junegunn/vim-plug/master/plug.vim'
-    execute 'source ' . fnameescape(autoload_plug_path)
-    let plug_install = 1
-endif
-unlet autoload_plug_path
-
 call plug#begin('~/.config/nvim/plugins')
 
 Plug 'jalvesaq/Nvim-R'
@@ -160,13 +151,11 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-rmarkdown'
 Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'sainnhe/sonokai'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 call plug#end()
 
-if plug_install
-    PlugInstall --sync
-endif
-unlet plug_install
 
 " Plugin Related Settings
 
@@ -175,13 +164,22 @@ autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
 
 " Monokai-tasty
-let g:vim_monokai_tasty_italic = 1
-colorscheme vim-monokai-tasty
+" let g:vim_monokai_tasty_italic = 1
+" colorscheme vim-monokai-tasty
+
+if has('termguicolors')
+    set termguicolors
+endif
+" The configuration options should be placed before `colorscheme sonokai`.
+let g:sonokai_style = 'atlantis'
+let g:sonokai_enable_italic = 1
+let g:sonokai_disable_italic_comment = 1
+colorscheme sonokai
 
 " LightLine.vim 
 set laststatus=2
 let g:lightline = {
-   \ 'colorscheme':'monokai_tasty',
+   \ 'colorscheme':'sonokai',
    \ }
 
 " Insert comments config
@@ -233,6 +231,7 @@ autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a %>%<CR>a
 " Set tab identation to 2 spaces in .R and .Rmd files
 autocmd FileType r setlocal ts=2 sw=2 expandtab
 autocmd FileType rmd setlocal ts=2 sw=2 expandtab
+autocmd FileType cpp setlocal ts=4 sw=4 expandtab
 
 " R commands in R output are highlighted
 let g:Rout_more_colors = 1
