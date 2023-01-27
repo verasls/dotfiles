@@ -153,6 +153,8 @@ Plug 'vim-pandoc/vim-rmarkdown'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'sainnhe/sonokai'
 Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'jpalardy/vim-slime'
 
 call plug#end()
 
@@ -214,6 +216,7 @@ let R_obj_opendf = 0
 " Set console width to be half the vim window width
 let R_rconsole_width = winwidth(0) / 2
 autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
+" let R_external_term = 1
 
 " Set position of R documentation and object browser
 let R_nvimpager = 'horizontal'
@@ -233,6 +236,9 @@ autocmd FileType r setlocal ts=2 sw=2 expandtab
 autocmd FileType rmd setlocal ts=2 sw=2 expandtab
 autocmd FileType cpp setlocal ts=4 sw=4 expandtab
 
+" Set tabs in .m files
+autocmd FileType matlab setlocal noexpandtab
+
 " R commands in R output are highlighted
 let g:Rout_more_colors = 1
 
@@ -251,3 +257,8 @@ let g:python_highlight_all = 1
 " Rainbow parentheses
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
+" Vim-slime
+let g:slime_target = "tmux"
+let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
+vmap <Space> <Plug>SlimeParagraphSend
+nmap <Space> <Plug>SlimeParagraphSend
