@@ -115,9 +115,9 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Setting PATH for Python 3.8
+# Setting PATH for Python
 # The original version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
+PATH="/usr/local/opt/python@3.11/libexec/bin:${PATH}"
 export PATH
 
 # gitignore.io
@@ -134,3 +134,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # Setting path to R
 PATH="/Library/Frameworks/R.framework/Resources:${PATH}"
 export PATH
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+export HOMEBREW_GITHUB_API_TOKEN=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
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
