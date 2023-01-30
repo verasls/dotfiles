@@ -17,3 +17,5 @@ pip3 install dask[complete]
 pip3 install ipython
 pip3 install jupyter
 pip3 install neovim
+pip3 install statsmodels
+pip3 install scikit-learn
