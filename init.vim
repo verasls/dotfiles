@@ -124,6 +124,10 @@ nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " Remove search highligh
 map nh :nohlsearch<CR>
 
+" Terminal mode
+map vt :vsplit term://zsh<CR>
+tnoremap <Esc> <C-\><C-n>
+
 " Automatic instalation of vim-plug
 call plug#begin('~/.config/nvim/plugins')
 
@@ -258,7 +262,6 @@ let g:python_highlight_all = 1
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
 
 " Vim-slime
-let g:slime_target = "tmux"
-let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.1"}
-vmap <Space> <Plug>SlimeRegionSend
-nmap <Space> <Plug>SlimeParagraphSend
+let g:slime_target = "neovim"
+autocmd FileType python vmap <Space> <Plug>SlimeRegionSend
+autocmd FileType python nmap <Space> <Plug>SlimeParagraphSend
