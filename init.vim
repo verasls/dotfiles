@@ -160,6 +160,7 @@ Plug 'sainnhe/sonokai'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'jpalardy/vim-slime'
+Plug 'codota/tabnine-nvim', { 'do': './dl_binaries.sh' }
 
 call plug#end()
 
@@ -266,3 +267,15 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 let g:slime_target = "neovim"
 autocmd FileType python vmap <Space> <Plug>SlimeRegionSend
 autocmd FileType python nmap <Space> <Plug>SlimeParagraphSend
+
+
+lua <<EOF
+require('tabnine').setup({
+  disable_auto_comment=true,
+  accept_keymap="<Tab>",
+  dismiss_keymap = "<C-]>",
+  debounce_ms = 800,
+  suggestion_color = {gui = "#808080", cterm = 244},
+  exclude_filetypes = {"TelescopePrompt"}
+})
+EOF
