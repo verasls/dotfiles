@@ -69,7 +69,8 @@ set smartcase
 set incsearch
 
 " Unbind some useless/annoying default key bindings.
-nmap Q <Nop> " 'Q' in normal mode enters Ex mode. You almost never want this.
+" 'Q' in normal mode enters Ex mode. You almost never want this.
+nmap Q <Nop>
 
 " Disable audible bell because it's annoying.
 set noerrorbells visualbell t_vb=
@@ -91,7 +92,7 @@ set splitright
 set splitbelow
 
 " Do not insert a comment when pressing o or O in normal mode
-au FileType * setlocal fo-=cro
+" au FileType * setlocal fo-=cro
 
 " Disable quote concealing in JSON files
 let g:vim_json_conceal=0
@@ -135,99 +136,90 @@ map nh :nohlsearch<CR>
 map vt :vsplit term://zsh<CR>
 tnoremap <Esc> <C-\><C-n>
 
-" Highlight column 81 in html files
-autocmd FileType html set colorcolumn=81
-nmap <C-c> :set colorcolumn=0<CR>    
+" Set termguicolors
+if has('termguicolors')
+    set termguicolors
+endif
 
+" Plugins ---------------------------------------------------------------------
 " Automatic instalation of vim-plug
 call plug#begin('~/.config/nvim/plugins')
 
-Plug 'jalvesaq/Nvim-R'
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'psliwka/vim-smoothie'
-Plug 'preservim/nerdtree'
-Plug 'preservim/nerdcommenter'
-Plug 'preservim/tagbar'
+" General
 Plug 'Raimondi/delimitMate'
-Plug 'patstockwell/vim-monokai-tasty'
-Plug 'itchyny/lightline.vim'
-Plug 'ncm2/ncm2-path'
-Plug 'ncm2/ncm2-jedi'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Yggdroot/indentLine'
-Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'psliwka/vim-smoothie'
+Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'
+Plug 'preservim/tagbar'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'w0rp/ale'
-Plug 'raingo/vim-matlab'
 Plug 'airblade/vim-gitgutter'
 Plug 'qpkorr/vim-bufkill'
-Plug 'vim-python/python-syntax'
-Plug 'luochen1990/rainbow'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'vim-pandoc/vim-rmarkdown'
-Plug 'JamshedVesuna/vim-markdown-preview'
-Plug 'sainnhe/sonokai'
-Plug 'octol/vim-cpp-enhanced-highlight'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'jpalardy/vim-slime'
-Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-surround'
+Plug 'mattn/webapi-vim'
+
+" Appearance
+Plug 'sainnhe/sonokai'
+Plug 'itchyny/lightline.vim'
+Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'luochen1990/rainbow'
+Plug 'ryanoasis/vim-devicons'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'arecarn/vim-clean-fold'
+
+" Autocomplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Linting
+Plug 'w0rp/ale'
+" REPL
+Plug 'jpalardy/vim-slime'
+" Github copilot
+Plug 'github/copilot.vim'
+
+" Language-specific
+" Python
+Plug 'vim-python/python-syntax'
+Plug 'tell-k/vim-autopep8'
+" R
+Plug 'jalvesaq/Nvim-R'
+Plug 'vim-pandoc/vim-rmarkdown'
+" Matlab
+Plug 'raingo/vim-matlab'
+" C++
+Plug 'octol/vim-cpp-enhanced-highlight'
+" HTML
+Plug 'alvan/vim-closetag'
+Plug 'AndrewRadev/tagalong.vim'
+Plug 'mattn/emmet-vim'
+" CSS
 Plug 'ap/vim-css-color'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'mattn/emmet-vim'
-Plug 'mattn/webapi-vim'
-Plug 'AndrewRadev/tagalong.vim'
-Plug 'github/copilot.vim'
-Plug 'tell-k/vim-autopep8'
+" Javascript
+Plug 'pangloss/vim-javascript'
+" General web dev
+Plug 'manzeloth/live-server'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
-Plug 'arecarn/vim-clean-fold'
-Plug 'manzeloth/live-server'
-Plug 'pangloss/vim-javascript'
-Plug 'ryanoasis/vim-devicons'
+" Markdown
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 call plug#end()
 
 
-" Plugin Related Settings
+" Plugin Related Settings -----------------------------------------------------
 
+" delimitMate
+" Disable delimitMate autoclose for < in html files
+autocmd FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
+
+" vim-smoothie
 " Allow smooth scrolling with gg and G
 let g:smoothie_experimental_mappings = 1
 
-" NCM2
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
-
-" Set autopep8 to be aggressive
-let g:autopep8_aggressive=2
-" Remap autopep8 command
-" autocmd FileType python nmap <C-a> call :Autopep8<CR>
-autocmd FileType python map <buffer> <C-a> :call Autopep8()<CR>
-
-" Monokai-tasty
-" let g:vim_monokai_tasty_italic = 1
-" colorscheme vim-monokai-tasty
-
-if has('termguicolors')
-    set termguicolors
-endif
-" The configuration options should be placed before `colorscheme sonokai`.
-let g:sonokai_style = 'atlantis'
-let g:sonokai_enable_italic = 1
-let g:sonokai_disable_italic_comment = 1
-colorscheme sonokai
-
-" LightLine.vim 
-set laststatus=2
-let g:lightline = {
-   \ 'colorscheme':'sonokai',
-   \ }
-
-" Insert comments config
+" nerdcommenter
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 " Align line-wise comment delimiters flush left instead of following code indentation
@@ -236,6 +228,7 @@ let g:NERDDefaultAlign = 'left'
 let g:NERDCommentEmptyLines = 1 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
+" nerdtree
 " Shortcut to open nerdtree
 map <C-q> :NERDTreeToggle<CR>
 " Show hidden files by default
@@ -245,7 +238,37 @@ let NERDTreeShowLineNumbers=1
 " Make sure relative line numbers are used
 autocmd FileType nerdtree setlocal relativenumber
 
-" Ale
+" tagbar
+" Remap tagbar
+nmap <C-w> :TagbarToggle<CR>
+
+" sonokai
+" The configuration options should be placed before `colorscheme sonokai`.
+let g:sonokai_style = 'atlantis'
+let g:sonokai_enable_italic = 1
+let g:sonokai_disable_italic_comment = 1
+colorscheme sonokai
+
+" lightLine.vim 
+set laststatus=2
+let g:lightline = {
+   \ 'colorscheme':'sonokai',
+   \ }
+
+" Also disable indentLine plugin for markdown and Rmd files as this
+" plugin set conceallevel = 2
+autocmd FileType markdown let g:indentLine_enabled = 0
+autocmd FileType rmd let g:indentLine_enabled = 0
+
+" Rainbow parentheses
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+" coc.nvim
+" Remap coc-nvim autocomplete
+inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
+inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
+
+" ale
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_echo_msg_error_str = 'E'
@@ -253,88 +276,58 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_linters = {'python': ['flake8']}
 
-" Remap coc-nvim autocomplete
-inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
-inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
-
-" Nvim-R
-" Press ,, to have Nvim-R insert the assignment operator (<-)
-let R_assign_map = ",,"
-
-" Don't expand a dataframe to show columns by default (\ro)
-let R_obj_opendf = 0
-
-" Set console width to be half the vim window width
-let R_rconsole_width = winwidth(0) / 2
-autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
-" let R_external_term = 1
-
-" Set position of R documentation and object browser
-let R_nvimpager = 'horizontal'
-let R_objbr_place = 'script,below'
-let R_objbr_h = 20
-
-" Press the space bar to send lines and selection to R console
-vmap <Space> <Plug>RESendSelection
-nmap <Space> <Plug>RESendParagraph
-
-" Keybind >> to the pipe operator (|>)
-autocmd FileType r inoremap <buffer> >> <Esc>:normal! a <Bar>><CR>a
-autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a <Bar>><CR>a
-
-" Set tab identation to 2 spaces in .R and .Rmd files
-autocmd FileType r setlocal ts=2 sw=2 expandtab
-autocmd FileType rmd setlocal ts=2 sw=2 expandtab
-autocmd FileType cpp setlocal ts=4 sw=4 expandtab
-
-" Set tabs in .m files
-autocmd FileType matlab setlocal noexpandtab
-
-" R commands in R output are highlighted
-let g:Rout_more_colors = 1
-
-" vim-pandoc and vim-rmarkdown and vim-markdown-preview
-let g:pandoc#modules#disabled = ["folding", "spell"]
-let g:pandoc#syntax#conceal#use = 0
-let vim_markdown_preview_github = 1
-" Also disable indentLine plugin for markdown and Rmd files as this
-" plugin set conceallevel = 2
-autocmd FileType markdown let g:indentLine_enabled = 0
-autocmd FileType rmd let g:indentLine_enabled = 0
-
-" Python syntax highlighting
-let g:python_highlight_all = 1
-
-" Rainbow parentheses
-let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
-
-" Vim-slime
+" vim-slime
 let g:slime_target = "neovim"
 autocmd FileType python vmap <Space> <Plug>SlimeRegionSend
 autocmd FileType python nmap <Space> <Plug>SlimeParagraphSend
 autocmd FileType javascript vmap <Space> <Plug>SlimeRegionSend
 autocmd FileType javascript nmap <Space> <Plug>SlimeParagraphSend
 
+" vim-autopep8
+" Set autopep8 to be aggressive
+let g:autopep8_aggressive=2
+" Remap autopep8 command
+" autocmd FileType python nmap <C-a> call :Autopep8<CR>
+autocmd FileType python map <buffer> <C-a> :call Autopep8()<CR>
+
+" Nvim-R
+" Press ,, to have Nvim-R insert the assignment operator (<-)
+let R_assign_map = ",,"
+" Don't expand a dataframe to show columns by default (\ro)
+let R_obj_opendf = 0
+" Set console width to be half the vim window width
+let R_rconsole_width = winwidth(0) / 2
+autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
+" let R_external_term = 1
+" Set position of R documentation and object browser
+let R_nvimpager = 'horizontal'
+let R_objbr_place = 'script,below'
+let R_objbr_h = 20
+" Press the space bar to send lines and selection to R console
+vmap <Space> <Plug>RESendSelection
+nmap <Space> <Plug>RESendParagraph
+" Keybind >> to the pipe operator (|>)
+autocmd FileType r inoremap <buffer> >> <Esc>:normal! a <Bar>><CR>a
+autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a <Bar>><CR>a
+" R commands in R output are highlighted
+let g:Rout_more_colors = 1
+
+" vim-closetag
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-
 " filenames like *.xml, *.xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-
 " filetypes like xml, html, xhtml, ...
 " These are the file types where this plugin is enabled.
 let g:closetag_filetypes = 'html,xhtml,phtml'
-
 " filetypes like xml, xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
 let g:closetag_xhtml_filetypes = 'xhtml,jsx'
-
 " integer value [0|1]
 " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
 let g:closetag_emptyTags_caseSensitive = 1
-
 " dict
 " Disables auto-close if not in a "valid" region (based on filetype)
 let g:closetag_regions = {
@@ -343,30 +336,35 @@ let g:closetag_regions = {
     \ 'typescriptreact': 'jsxRegion,tsxRegion',
     \ 'javascriptreact': 'jsxRegion',
     \ }
-
-" Disable delimitMate autoclose for < in html files
-autocmd FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
-
 " Shortcut for closing tags, default is '>'
 let g:closetag_shortcut = '>'
-
 " Add > at current position without closing the current tag, default is ''
 let g:closetag_close_shortcut = '<leader>>'
 
+" emmet-vim
 " Change emmet leader
 let g:user_emmet_leader_key='<C-Z>'
 
+" vim-prettier
 " Remap Prettier shortcut
 nmap <C-p> :Prettier<CR>    
 " Autoformat on save
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
 
-" Set tab identation to 2 spaces in html and css files
-autocmd FileType html setlocal ts=2 sw=2 expandtab
-autocmd FileType css setlocal ts=2 sw=2 expandtab
+" vim-pandoc and vim-rmarkdown and vim-markdown-preview
+let g:pandoc#modules#disabled = ["folding", "spell"]
+let g:pandoc#syntax#conceal#use = 0
+let vim_markdown_preview_github = 1
 
-" Remap tagbar
-nmap <C-w> :TagbarToggle<CR>
+" Language specific settings --------------------------------------------------
 
+" Python syntax highlighting
+let g:python_highlight_all = 1
 
+" Set tabs in .m files
+autocmd FileType matlab setlocal noexpandtab
+
+" Highlight column 81 in html files
+autocmd FileType html set colorcolumn=81
+nmap <C-c> :set colorcolumn=0<CR>    
