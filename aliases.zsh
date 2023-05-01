@@ -6,6 +6,8 @@ alias vim="nvim"
 alias tm="tmux"
 alias tml="tmux list-sessions"
 alias tmk="tmux kill-session"
+alias sg="sgpt"
+alias aic="aicommmits"
 
 # Directories
 alias dotfiles="cd $DOTFILES"
