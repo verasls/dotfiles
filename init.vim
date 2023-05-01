@@ -12,8 +12,8 @@
 set nocompatible
 
 " Set default values for ts and sw
-set ts=4
-set sw=4
+set ts=2
+set sw=2
 set expandtab
 
 " Display tabs
@@ -82,12 +82,19 @@ filetype plugin on
 set mouse+=a
 
 " Autosave when lose focus
-au FocusLost * silent! wa
+" au FocusLost * silent! :wa
+autocmd BufLeave,FocusLost * silent! wall
 set autowriteall
- 
+
 " Put new buffers on the right (vertical) or bottom (horizontal) of the screen
 set splitright
 set splitbelow
+
+" Do not insert a comment when pressing o or O in normal mode
+au FileType * setlocal fo-=cro
+
+" Disable quote concealing in JSON files
+let g:vim_json_conceal=0
 
 " Facilitate split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -128,20 +135,26 @@ map nh :nohlsearch<CR>
 map vt :vsplit term://zsh<CR>
 tnoremap <Esc> <C-\><C-n>
 
+" Highlight column 81 in html files
+autocmd FileType html set colorcolumn=81
+nmap <C-c> :set colorcolumn=0<CR>    
+
 " Automatic instalation of vim-plug
 call plug#begin('~/.config/nvim/plugins')
 
 Plug 'jalvesaq/Nvim-R'
 Plug 'ncm2/ncm2'
 Plug 'roxma/nvim-yarp'
+Plug 'psliwka/vim-smoothie'
 Plug 'preservim/nerdtree'
+Plug 'preservim/nerdcommenter'
+Plug 'preservim/tagbar'
 Plug 'Raimondi/delimitMate'
 Plug 'patstockwell/vim-monokai-tasty'
 Plug 'itchyny/lightline.vim'
 Plug 'ncm2/ncm2-path'
 Plug 'ncm2/ncm2-jedi'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/nerdcommenter'
 Plug 'Yggdroot/indentLine'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'preservim/nerdtree'
@@ -160,16 +173,40 @@ Plug 'sainnhe/sonokai'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'jpalardy/vim-slime'
-Plug 'codota/tabnine-nvim', { 'do': './dl_binaries.sh' }
+Plug 'alvan/vim-closetag'
+Plug 'tpope/vim-surround'
+Plug 'ap/vim-css-color'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'mattn/emmet-vim'
+Plug 'mattn/webapi-vim'
+Plug 'AndrewRadev/tagalong.vim'
+Plug 'github/copilot.vim'
+Plug 'tell-k/vim-autopep8'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+Plug 'arecarn/vim-clean-fold'
+Plug 'manzeloth/live-server'
+Plug 'pangloss/vim-javascript'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
 
 " Plugin Related Settings
 
+" Allow smooth scrolling with gg and G
+let g:smoothie_experimental_mappings = 1
+
 " NCM2
 autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
+
+" Set autopep8 to be aggressive
+let g:autopep8_aggressive=2
+" Remap autopep8 command
+" autocmd FileType python nmap <C-a> call :Autopep8<CR>
+autocmd FileType python map <buffer> <C-a> :call Autopep8()<CR>
 
 " Monokai-tasty
 " let g:vim_monokai_tasty_italic = 1
@@ -203,6 +240,10 @@ let g:NERDTrimTrailingWhitespace = 1
 map <C-q> :NERDTreeToggle<CR>
 " Show hidden files by default
 let NERDTreeShowHidden=1
+" Enable line numbers
+let NERDTreeShowLineNumbers=1
+" Make sure relative line numbers are used
+autocmd FileType nerdtree setlocal relativenumber
 
 " Ale
 let g:ale_lint_on_enter = 0
@@ -211,6 +252,10 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 let g:ale_linters = {'python': ['flake8']}
+
+" Remap coc-nvim autocomplete
+inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
+inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
 
 " Nvim-R
 " Press ,, to have Nvim-R insert the assignment operator (<-)
@@ -267,15 +312,61 @@ let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowTo
 let g:slime_target = "neovim"
 autocmd FileType python vmap <Space> <Plug>SlimeRegionSend
 autocmd FileType python nmap <Space> <Plug>SlimeParagraphSend
+autocmd FileType javascript vmap <Space> <Plug>SlimeRegionSend
+autocmd FileType javascript nmap <Space> <Plug>SlimeParagraphSend
+
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+let g:closetag_filetypes = 'html,xhtml,phtml'
+
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+let g:closetag_emptyTags_caseSensitive = 1
+
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ 'typescriptreact': 'jsxRegion,tsxRegion',
+    \ 'javascriptreact': 'jsxRegion',
+    \ }
+
+" Disable delimitMate autoclose for < in html files
+autocmd FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
+
+" Shortcut for closing tags, default is '>'
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+let g:closetag_close_shortcut = '<leader>>'
+
+" Change emmet leader
+let g:user_emmet_leader_key='<C-Z>'
+
+" Remap Prettier shortcut
+nmap <C-p> :Prettier<CR>    
+" Autoformat on save
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+
+" Set tab identation to 2 spaces in html and css files
+autocmd FileType html setlocal ts=2 sw=2 expandtab
+autocmd FileType css setlocal ts=2 sw=2 expandtab
+
+" Remap tagbar
+nmap <C-w> :TagbarToggle<CR>
 
 
-lua <<EOF
-require('tabnine').setup({
-  disable_auto_comment=true,
-  accept_keymap="<Tab>",
-  dismiss_keymap = "<C-]>",
-  debounce_ms = 800,
-  suggestion_color = {gui = "#808080", cterm = 244},
-  exclude_filetypes = {"TelescopePrompt"}
-})
-EOF
