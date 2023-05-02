@@ -241,6 +241,7 @@ autocmd FileType nerdtree setlocal relativenumber
 " tagbar
 " Remap tagbar
 nmap <C-w> :TagbarToggle<CR>
+let g:tagbar_left=1
 
 " sonokai
 " The configuration options should be placed before `colorscheme sonokai`.
@@ -368,3 +369,6 @@ autocmd FileType matlab setlocal noexpandtab
 " Highlight column 81 in html files
 autocmd FileType html set colorcolumn=81
 nmap <C-c> :set colorcolumn=0<CR>    
+
+" Remap arrow symbol in javascript
+autocmd FileType javascript inoremap <buffer> ,, <Esc>:normal! a => <CR>a
