@@ -134,7 +134,7 @@ map nh :nohlsearch<CR>
 
 " Terminal mode
 map vt :vsplit term://zsh<CR>
-tnoremap <Esc> <C-\><C-n>
+noremap <Esc> <C-\><C-n>
 
 " Set termguicolors
 if has('termguicolors')
@@ -166,6 +166,7 @@ Plug 'luochen1990/rainbow'
 Plug 'ryanoasis/vim-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'arecarn/vim-clean-fold'
+Plug 'sakshamgupta05/vim-todo-highlight'
 
 " Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -242,6 +243,7 @@ autocmd FileType nerdtree setlocal relativenumber
 " Remap tagbar
 nmap <C-w> :TagbarToggle<CR>
 let g:tagbar_left=1
+let g:tagbar_show_linenumbers=2
 
 " sonokai
 " The configuration options should be placed before `colorscheme sonokai`.
@@ -263,6 +265,22 @@ autocmd FileType rmd let g:indentLine_enabled = 0
 
 " Rainbow parentheses
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+" vim-todo-highlight
+let g:todo_highlight_config = {
+      \   'TODO': {
+      \     'gui_fg_color': '#ffffff',
+      \     'gui_bg_color': '#1c7ed6',
+      \     'cterm_fg_color': 'white',
+      \     'cterm_bg_color': '39'
+      \   },
+      \   'BUG': {
+      \     'gui_fg_color': '#ffffff',
+      \     'gui_bg_color': '#e03131',
+      \     'cterm_fg_color': 'white',
+      \     'cterm_bg_color': '160'
+      \   }
+      \ }
 
 " coc.nvim
 " Remap coc-nvim autocomplete
