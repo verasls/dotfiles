@@ -279,6 +279,12 @@ let g:todo_highlight_config = {
       \     'gui_bg_color': '#e03131',
       \     'cterm_fg_color': 'white',
       \     'cterm_bg_color': '160'
+      \   },
+      \   'NOTE': {
+      \     'gui_fg_color': '#ffffff',
+      \     'gui_bg_color': '#f59f00',
+      \     'cterm_fg_color': 'white',
+      \     'cterm_bg_color': '220'
       \   }
       \ }
 
