@@ -134,7 +134,7 @@ map nh :nohlsearch<CR>
 
 " Terminal mode
 map vt :vsplit term://zsh<CR>
-noremap <Esc> <C-\><C-n>
+tnoremap <Esc> <C-\><C-n>
 
 " Set termguicolors
 if has('termguicolors')
