@@ -197,6 +197,7 @@ Plug 'ap/vim-css-color'
 Plug 'hail2u/vim-css3-syntax'
 " Javascript
 Plug 'pangloss/vim-javascript'
+Plug 'MaxMEllon/vim-jsx-pretty'
 " General web dev
 Plug 'manzeloth/live-server'
 Plug 'prettier/vim-prettier', {
@@ -228,6 +229,10 @@ let g:NERDDefaultAlign = 'left'
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
+" Define custom delimiters for jsx
+let g:NERDCustomDelimiters={
+	\ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
+\}
 
 " nerdtree
 " Shortcut to open nerdtree
@@ -369,6 +374,11 @@ let g:closetag_close_shortcut = '<leader>>'
 " emmet-vim
 " Change emmet leader
 let g:user_emmet_leader_key='<C-Z>'
+
+" vim-jsx-pretty
+" Change close tag highlight
+let g:vim_jsx_pretty_highlight_close_tag = 1
+hi link jsxCloseString Function
 
 " vim-prettier
 " Remap Prettier shortcut
