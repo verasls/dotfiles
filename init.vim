@@ -156,6 +156,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'qpkorr/vim-bufkill'
 Plug 'tpope/vim-surround'
 Plug 'mattn/webapi-vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Appearance
 Plug 'sainnhe/sonokai'
@@ -174,8 +175,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'w0rp/ale'
 " REPL
 Plug 'jpalardy/vim-slime'
-" Github copilot
-Plug 'github/copilot.vim'
 
 " Language-specific
 " Python
@@ -207,7 +206,6 @@ Plug 'prettier/vim-prettier', {
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'JamshedVesuna/vim-markdown-preview'
-
 call plug#end()
 
 
@@ -229,7 +227,7 @@ let g:NERDDefaultAlign = 'left'
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
-" Define custom delimiters for jsx
+" Define custom delimiters for jsx (toggle with <leader>ca)
 let g:NERDCustomDelimiters={
 	\ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
 \}
@@ -249,6 +247,14 @@ autocmd FileType nerdtree setlocal relativenumber
 nmap <C-w> :TagbarToggle<CR>
 let g:tagbar_left=1
 let g:tagbar_show_linenumbers=2
+
+" FZF key bindings
+nnoremap <C-f> :FZF<CR>
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-h': 'split',
+  \ 'ctrl-s': 'vsplit' }
+let $FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .git \) -prune -o -print'
 
 " sonokai
 " The configuration options should be placed before `colorscheme sonokai`.
@@ -310,8 +316,6 @@ let g:ale_linters = {'python': ['flake8']}
 let g:slime_target = "neovim"
 autocmd FileType python vmap <Space> <Plug>SlimeRegionSend
 autocmd FileType python nmap <Space> <Plug>SlimeParagraphSend
-autocmd FileType javascript vmap <Space> <Plug>SlimeRegionSend
-autocmd FileType javascript nmap <Space> <Plug>SlimeParagraphSend
 
 " vim-autopep8
 " Set autopep8 to be aggressive
@@ -345,7 +349,7 @@ let g:Rout_more_colors = 1
 " vim-closetag
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
 " filenames like *.xml, *.xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
@@ -406,3 +410,9 @@ nmap <C-c> :set colorcolumn=0<CR>
 
 " Remap arrow symbol in javascript
 autocmd FileType javascript inoremap <buffer> ,, <Esc>:normal! a => <CR>a
+
+
+
+
+
+
