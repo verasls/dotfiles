@@ -159,8 +159,8 @@ Plug 'mattn/webapi-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Appearance
-Plug 'sainnhe/sonokai'
-Plug 'itchyny/lightline.vim'
+Plug 'morhetz/gruvbox'
+Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'luochen1990/rainbow'
@@ -229,7 +229,7 @@ let g:NERDCommentEmptyLines = 1 " Enable trimming of trailing whitespace when un
 let g:NERDTrimTrailingWhitespace = 1
 " Define custom delimiters for jsx (toggle with <leader>ca)
 let g:NERDCustomDelimiters={
-	\ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
+  \ 'javascript': { 'left': '//', 'right': '', 'leftAlt': '{/*', 'rightAlt': '*/}' },
 \}
 
 " nerdtree
@@ -256,18 +256,8 @@ let g:fzf_action = {
   \ 'ctrl-s': 'vsplit' }
 let $FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .git \) -prune -o -print'
 
-" sonokai
-" The configuration options should be placed before `colorscheme sonokai`.
-let g:sonokai_style = 'atlantis'
-let g:sonokai_enable_italic = 1
-let g:sonokai_disable_italic_comment = 1
-colorscheme sonokai
-
-" lightLine.vim 
-set laststatus=2
-let g:lightline = {
-   \ 'colorscheme':'sonokai',
-   \ }
+" Gruvbox colorscheme
+autocmd vimenter * ++nested colorscheme gruvbox
 
 " Also disable indentLine plugin for markdown and Rmd files as this
 " plugin set conceallevel = 2
@@ -386,7 +376,7 @@ hi link jsxCloseString Function
 
 " vim-prettier
 " Remap Prettier shortcut
-nmap <C-p> :Prettier<CR>    
+nmap <C-p> :Prettier<CR>
 " Autoformat on save
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
@@ -406,13 +396,7 @@ autocmd FileType matlab setlocal noexpandtab
 
 " Highlight column 81 in html files
 autocmd FileType html set colorcolumn=81
-nmap <C-c> :set colorcolumn=0<CR>    
+nmap <C-c> :set colorcolumn=0<CR>
 
 " Remap arrow symbol in javascript
 autocmd FileType javascript inoremap <buffer> ,, <Esc>:normal! a => <CR>a
-
-
-
-
-
-
