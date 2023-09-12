@@ -23,6 +23,7 @@ brew 'grip'
 brew 'markdown'
 brew 'qpdf'
 brew 'romkatv/powerlevel10k/powerlevel10k'
+brew 'fzf'
 
 # Apps
 cask 'alfred'

@@ -137,3 +137,6 @@ export PATH
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 export HOMEBREW_GITHUB_API_TOKEN=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
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+
+# Configure fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

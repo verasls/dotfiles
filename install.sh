@@ -56,6 +56,10 @@ ln -s $HOME/.dotfiles/init.vim $HOME/.config/nvim/init.vim
 rm -rf $HOME/.tmux.conf
 ln -s $HOME/.dotfiles/.tmux.conf $HOME/.tmux.conf
 
+# Removes .fzf.zsh from $HOME (if it exists) and symlinks the .fzf.zsh from the .dotfiles
+rm -rf $HOME/.fzf.zsh
+ln -s $HOME/.dotfiles/.fzf.zsh $HOME/.fzf.zsh
+
 # Removes .Rprofile from $HOME (if it exists) and symlinks the .Rprofile from the .dotfiles
 rm -rf $HOME/.Rprofile
 ln -s $HOME/.dotfiles/.Rprofile $HOME/.Rprofile
