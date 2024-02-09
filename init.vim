@@ -16,6 +16,9 @@ set ts=2
 set sw=2
 set expandtab
 
+" enable indentation
+set breakindent
+
 " Display tabs
 set list
 set listchars=tab:>-
@@ -93,6 +96,9 @@ set splitbelow
 
 " Do not insert a comment when pressing o or O in normal mode
 " au FileType * setlocal fo-=cro
+" autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+" set formatoptions-=cro
+" autocmd FileType typescript setlocal formatoptions-=cro
 
 " Disable quote concealing in JSON files
 let g:vim_json_conceal=0
@@ -160,6 +166,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Appearance
 Plug 'morhetz/gruvbox'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -194,18 +201,25 @@ Plug 'mattn/emmet-vim'
 " CSS
 Plug 'ap/vim-css-color'
 Plug 'hail2u/vim-css3-syntax'
+Plug 'yaegassy/coc-tailwindcss',  {'do': 'npm install && npm run build', 'branch': 'feat/support-v3-and-use-server-pkg'}
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Javascript
-Plug 'pangloss/vim-javascript'
+Plug 'yuezk/vim-js'
 Plug 'MaxMEllon/vim-jsx-pretty'
 " General web dev
 Plug 'manzeloth/live-server'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+  \ 'for': ['javascript', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
 " Markdown
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'JamshedVesuna/vim-markdown-preview'
+
+
+
+
+Plug 'neoclide/jsonc.vim'
 call plug#end()
 
 
@@ -257,7 +271,10 @@ let g:fzf_action = {
 let $FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .git \) -prune -o -print'
 
 " Gruvbox colorscheme
-autocmd vimenter * ++nested colorscheme gruvbox
+" let g:gruvbox_invert_selection = 0
+" autocmd vimenter * ++nested colorscheme gruvbox
+colorscheme catppuccin-macchiato
+let g:airline_theme = 'catppuccin'
 
 " Also disable indentLine plugin for markdown and Rmd files as this
 " plugin set conceallevel = 2
@@ -400,3 +417,25 @@ nmap <C-c> :set colorcolumn=0<CR>
 
 " Remap arrow symbol in javascript
 autocmd FileType javascript inoremap <buffer> ,, <Esc>:normal! a => <CR>a
+autocmd FileType typescript inoremap <buffer> ,, <Esc>:normal! a => <CR>a
+autocmd FileType typescriptreact inoremap <buffer> ,, <Esc>:normal! a => <CR>a
+
+
+
+
+" For the most accurate but slowest result, set the syntax synchronization method to fromstart. This can be done with an autocmd in your vimrc:
+autocmd BufEnter * :syntax sync fromstart
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nnoremap <silent> K :call ShowDocumentation()<CR>
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
