@@ -6,6 +6,7 @@ tap 'homebrew/cask-versions'
 tap 'homebrew/bundle'
 tap 'homebrew/science'
 tap 'buo/cask-upgrade'
+tap 'koekeishiya/formulae'
 
 # Binaries
 brew 'bash' # Latest Bash version
@@ -24,6 +25,7 @@ brew 'markdown'
 brew 'qpdf'
 brew 'romkatv/powerlevel10k/powerlevel10k'
 brew 'fzf'
+brew 'yabai'
 
 # Apps
 cask 'alfred'

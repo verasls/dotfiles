@@ -58,6 +58,11 @@ ln -s $HOME/.dotfiles/.fzf.zsh $HOME/.fzf.zsh
 rm -rf $HOME/.Rprofile
 ln -s $HOME/.dotfiles/.Rprofile $HOME/.Rprofile
 
+# Removes yabairc from $HOME (if it exists) and symlinks the yabairc from the .dotfiles
+mkdir $HOME/.config/yabai
+rm -rf $HOME/.config/yabai/yabairc
+ln -s $HOME/.dotfiles/yabairc $HOME/.config/yabai/yabairc
+
 # Set macOS preferences
 # We will run this last because this will reload the shell
 source .macos
