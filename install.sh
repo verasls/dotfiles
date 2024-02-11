@@ -63,6 +63,11 @@ mkdir $HOME/.config/yabai
 rm -rf $HOME/.config/yabai/yabairc
 ln -s $HOME/.dotfiles/yabairc $HOME/.config/yabai/yabairc
 
+# Removes skhdrc from $HOME (if it exists) and symlinks the skhdrc from the .dotfiles
+mkdir $HOME/.config/skhd
+rm -rf $HOME/.config/skhd/skhdrc
+ln -s $HOME/.dotfiles/skhdrc $HOME/.config/skhd/skhdrc
+
 # Set macOS preferences
 # We will run this last because this will reload the shell
 source .macos

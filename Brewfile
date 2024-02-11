@@ -26,6 +26,7 @@ brew 'qpdf'
 brew 'romkatv/powerlevel10k/powerlevel10k'
 brew 'fzf'
 brew 'yabai'
+brew 'skhd'
 
 # Apps
 cask 'alfred'
