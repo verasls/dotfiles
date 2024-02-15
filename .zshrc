@@ -140,3 +140,5 @@ source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
 # Configure fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(zoxide init zsh)"
