@@ -2,6 +2,7 @@
 alias reloadshell='source $HOME/.zshrc'
 alias c='clear'
 alias lsa='ls -la'
+alias ll='eza -l -a --icons'
 alias vim='nvim'
 alias v='nvim'
 alias vf='vim $(fzf)'
