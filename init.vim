@@ -165,7 +165,6 @@ Plug 'mattn/webapi-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Appearance
-Plug 'morhetz/gruvbox'
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'vim-airline/vim-airline'
 Plug 'Yggdroot/indentLine'
@@ -270,9 +269,7 @@ let g:fzf_action = {
   \ 'ctrl-s': 'vsplit' }
 let $FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .git \) -prune -o -print'
 
-" Gruvbox colorscheme
-" let g:gruvbox_invert_selection = 0
-" autocmd vimenter * ++nested colorscheme gruvbox
+" Catppuccin machiatto colorscheme
 colorscheme catppuccin-macchiato
 let g:airline_theme = 'catppuccin'
 
@@ -310,6 +307,14 @@ let g:todo_highlight_config = {
 " Remap coc-nvim autocomplete
 inoremap <silent><expr> <tab> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
 inoremap <silent><expr> <cr> "\<c-g>u\<CR>"
+" Formatting selected code
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+" Autoformat R code on save
+augroup AutoFormat
+  autocmd!
+  autocmd BufWritePre *.R call CocActionAsync('format')
+augroup END
 
 " ale
 let g:ale_lint_on_enter = 0
@@ -419,9 +424,6 @@ nmap <C-c> :set colorcolumn=0<CR>
 autocmd FileType javascript inoremap <buffer> ,, <Esc>:normal! a => <CR>a
 autocmd FileType typescript inoremap <buffer> ,, <Esc>:normal! a => <CR>a
 autocmd FileType typescriptreact inoremap <buffer> ,, <Esc>:normal! a => <CR>a
-
-
-
 
 " For the most accurate but slowest result, set the syntax synchronization method to fromstart. This can be done with an autocmd in your vimrc:
 autocmd BufEnter * :syntax sync fromstart
