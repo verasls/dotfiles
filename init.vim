@@ -163,6 +163,7 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'tpope/vim-surround'
 Plug 'mattn/webapi-vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Appearance
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
@@ -262,12 +263,18 @@ let g:tagbar_left=1
 let g:tagbar_show_linenumbers=2
 
 " FZF key bindings
-nnoremap <C-f> :FZF<CR>
+let $FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .git \) -prune -o -print'
+let $FZF_DEFAULT_OPTS="--preview-window 'right:57%' --preview 'bat --style=numbers --line-range :300 {}'
+\ctrl-u:preview-half-page-up,ctrl-b:preview-half-page-down"
+let g:fzf_vim = {}
+let g:fzf_vim.preview_window = ['right,50%', 'ctrl-/']
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-h': 'split',
-  \ 'ctrl-s': 'vsplit' }
-let $FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .git \) -prune -o -print'
+  \ 'ctrl-s': 'vsplit'}
+nnoremap <C-f> :Files<CR>
+nnoremap <C-g> :GFiles?<CR>
+nnoremap <C-i> :RG<CR>
 
 " Catppuccin machiatto colorscheme
 colorscheme catppuccin-macchiato
