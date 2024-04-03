@@ -13,7 +13,7 @@ alias sg='sgpt'
 alias aic='aicommits'
 
 # Directories
-alias dotfiles='cd $DOTFILES'
+alias dot='cd $DOTFILES'
 alias prj='cd $HOME/Documents/Projects'
 
 # Git
