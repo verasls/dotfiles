@@ -215,10 +215,7 @@ Plug 'prettier/vim-prettier', {
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'JamshedVesuna/vim-markdown-preview'
-
-
-
-
+" JSON
 Plug 'neoclide/jsonc.vim'
 call plug#end()
 
@@ -364,6 +361,21 @@ autocmd FileType r inoremap <buffer> >> <Esc>:normal! a <Bar>><CR>a
 autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a <Bar>><CR>a
 " R commands in R output are highlighted
 let g:Rout_more_colors = 1
+" Function to add a section to the code
+function! CreateSection(section_name)
+  let section_length = 80 - len(a:section_name) - 3
+  let section_line = '# ' . a:section_name . ' ' . repeat('-', section_length)
+  call append(line('.'), section_line)
+endfunction
+" Input the name of the section
+function! InputSectionName()
+  let section_name = input("Enter section name: ")
+  if !empty(section_name)
+    call CreateSection(section_name)
+  endif
+endfunction
+" Mapping to call this function
+autocmd FileType r nnoremap <buffer> <leader>s :call InputSectionName()<CR>
 
 " vim-closetag
 " filenames like *.xml, *.html, *.xhtml, ...
