@@ -139,7 +139,6 @@ nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 map nh :nohlsearch<CR>
 
 " Terminal mode
-map vt :vsplit term://zsh<CR>
 tnoremap <Esc> <C-\><C-n>
 
 " Set termguicolors
@@ -188,7 +187,6 @@ Plug 'jpalardy/vim-slime'
 Plug 'vim-python/python-syntax'
 Plug 'tell-k/vim-autopep8'
 " R
-Plug 'jalvesaq/Nvim-R'
 Plug 'vim-pandoc/vim-rmarkdown'
 " Matlab
 Plug 'raingo/vim-matlab'
@@ -330,8 +328,22 @@ let g:ale_linters = {'python': ['flake8']}
 
 " vim-slime
 let g:slime_target = "neovim"
-autocmd FileType python vmap <Space> <Plug>SlimeRegionSend
-autocmd FileType python nmap <Space> <Plug>SlimeParagraphSend
+autocmd FileType python,r vmap <Space> <Plug>SlimeRegionSend
+autocmd FileType python,r nmap <Space> <Plug>SlimeParagraphSend
+function! StartREPL()
+  let repl = input("Enter the desired program: ")
+  if tolower(repl) == "r"
+    let repl = "R --vanilla"
+  endif
+
+  if !empty(repl)
+    vsplit
+    enew
+    call termopen(repl)
+    execute 'normal!' . "\<c-w>p"
+  endif
+endfunction
+noremap <buffer> vt :call StartREPL()<CR>
 
 " vim-autopep8
 " Set autopep8 to be aggressive
@@ -339,43 +351,6 @@ let g:autopep8_aggressive=2
 " Remap autopep8 command
 " autocmd FileType python nmap <C-a> call :Autopep8<CR>
 autocmd FileType python map <buffer> <C-a> :call Autopep8()<CR>
-
-" Nvim-R
-" Press ,, to have Nvim-R insert the assignment operator (<-)
-let R_assign_map = ",,"
-" Don't expand a dataframe to show columns by default (\ro)
-let R_obj_opendf = 0
-" Set console width to be half the vim window width
-let R_rconsole_width = winwidth(0) / 2
-autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
-" let R_external_term = 1
-" Set position of R documentation and object browser
-let R_nvimpager = 'horizontal'
-let R_objbr_place = 'script,below'
-let R_objbr_h = 20
-" Press the space bar to send lines and selection to R console
-vmap <Space> <Plug>RESendSelection
-nmap <Space> <Plug>RESendParagraph
-" Keybind >> to the pipe operator (|>)
-autocmd FileType r inoremap <buffer> >> <Esc>:normal! a <Bar>><CR>a
-autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a <Bar>><CR>a
-" R commands in R output are highlighted
-let g:Rout_more_colors = 1
-" Function to add a section to the code
-function! CreateSection(section_name)
-  let section_length = 80 - len(a:section_name) - 3
-  let section_line = '# ' . a:section_name . ' ' . repeat('-', section_length)
-  call append(line('.'), section_line)
-endfunction
-" Input the name of the section
-function! InputSectionName()
-  let section_name = input("Enter section name: ")
-  if !empty(section_name)
-    call CreateSection(section_name)
-  endif
-endfunction
-" Mapping to call this function
-autocmd FileType r nnoremap <buffer> <leader>s :call InputSectionName()<CR>
 
 " vim-closetag
 " filenames like *.xml, *.html, *.xhtml, ...
@@ -431,6 +406,27 @@ let vim_markdown_preview_github = 1
 
 " Python syntax highlighting
 let g:python_highlight_all = 1
+
+" R
+autocmd FileType r inoremap <buffer> >> <Esc>:normal! a <Bar>><CR>a
+autocmd FileType rmd inoremap <buffer> >> <Esc>:normal! a <Bar>><CR>a
+autocmd FileType r inoremap <buffer> ,, <Esc>:normal! a <- <CR>a
+autocmd FileType rmd inoremap <buffer> ,, <Esc>:normal! a <- <CR>a
+" Function to add a section to the code
+function! CreateSection(section_name)
+  let section_length = 80 - len(a:section_name) - 3
+  let section_line = '# ' . a:section_name . ' ' . repeat('-', section_length)
+  call append(line('.'), section_line)
+endfunction
+" Input the name of the section
+function! InputSectionName()
+  let section_name = input("Enter section name: ")
+  if !empty(section_name)
+    call CreateSection(section_name)
+  endif
+endfunction
+" Mapping to call this function
+autocmd FileType r nnoremap <buffer> <leader>s :call InputSectionName()<CR>
 
 " Set tabs in .m files
 autocmd FileType matlab setlocal noexpandtab
