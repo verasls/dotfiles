@@ -333,7 +333,7 @@ autocmd FileType python,r nmap <Space> <Plug>SlimeParagraphSend
 function! StartREPL()
   let repl = input("Enter the desired program: ")
   if tolower(repl) == "r"
-    let repl = "R --vanilla"
+    let repl = "R --no-save"
   endif
 
   if !empty(repl)

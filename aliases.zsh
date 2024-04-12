@@ -40,4 +40,4 @@ alias python='python3'
 alias ipy='ipython'
 
 # R
-alias R='R --vanilla'
+alias R='R --no-save'
