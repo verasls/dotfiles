@@ -38,13 +38,10 @@ ln -s $HOME/.dotfiles/.gitignore_global $HOME/.gitignore_global
 # Symlink the Mackup config file to the home directory
 ln -s $HOME/.dotfiles/.mackup.cfg $HOME/.mackup.cfg
 
-# Removes init.vim from $HOME/.config/nvim/init.vim (if it exists) and symlinks the
-# init.vim file from the .dotfiles
-if [ ! -d "$HOME/.config/nvim" ]; then
-  mkdir -p $HOME/.config/nvim
-fi
-rm -rf $HOME/.config/nvim/init.vim
-ln -s $HOME/.dotfiles/init.vim $HOME/.config/nvim/init.vim
+# Removes neovim config files from $HOME/.config/nvim (if it exists) and symlinks from
+# the dotfiles
+rm -rf $HOME/.config/nvim
+ln -s $HOME/.dotfiles/nvim $HOME/.config/nvim
 
 # Removes .tmux.conf from $HOME (if it exists) and symlinks the .tmux.conf from the .dotfiles
 rm -rf $HOME/.tmux.conf
