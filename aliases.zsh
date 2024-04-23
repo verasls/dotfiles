@@ -11,6 +11,7 @@ alias tml='tmux list-sessions'
 alias tmk='tmux kill-session'
 alias sg='sgpt'
 alias aic='aicommits'
+alias w='bash ~/.dotfiles/tmux_sessions.sh'
 
 # Directories
 alias dot='cd $DOTFILES'
