@@ -6,16 +6,21 @@ alias ll='eza -l -a --icons'
 alias vim='nvim'
 alias v='nvim .'
 alias vf='vim $(fzf --preview "bat --style=numbers --color=always --line-range :500 {}")'
-alias tm='tmux'
-alias tml='tmux list-sessions'
-alias tmk='tmux kill-session'
 alias sg='sgpt'
 alias aic='aicommits'
-alias w='bash ~/.dotfiles/tmux_sessions.sh'
 
 # Directories
 alias dot='cd $DOTFILES'
 alias prj='cd $HOME/Documents/Projects'
+
+# Tmux
+alias tm='tmux'
+alias tma='tmux attach'
+alias tmd='tmux detach'
+alias tmls='tmux list-sessions'
+alias tmk='tmux kill-session'
+alias tmka='tmux kill-server'
+alias w='bash ~/.dotfiles/tmux_sessions.sh'
 
 # Git
 alias gst='git status'
