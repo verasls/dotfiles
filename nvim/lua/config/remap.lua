@@ -28,7 +28,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 vim.api.nvim_set_keymap("n", "bn", ":bn<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "bp", ":bp<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "bx", ":bd!<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "bx", ":b#|bd!#<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
 
