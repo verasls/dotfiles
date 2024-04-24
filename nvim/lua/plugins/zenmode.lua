@@ -9,7 +9,7 @@ return {
         },
       }
       require("zen-mode").toggle()
-      vim.wo.wrap = false
+      vim.wo.wrap = true
       vim.wo.number = true
       vim.wo.rnu = true
     end)
