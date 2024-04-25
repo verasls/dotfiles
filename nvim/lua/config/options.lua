@@ -1,3 +1,5 @@
+vim.o.shortmess = vim.o.shortmess .. "I"
+
 vim.opt.guicursor = ""
 
 vim.opt.nu = true
