@@ -4,7 +4,7 @@ alias c='clear'
 alias lsa='ls -la'
 alias ll='eza -l -a --icons'
 alias vim='nvim'
-alias v='nvim .'
+alias v='nvim'
 alias vf='vim $(fzf --preview "bat --style=numbers --color=always --line-range :500 {}")'
 alias aic='aicommits'
 
@@ -23,6 +23,7 @@ alias w='bash ~/.dotfiles/tmux_sessions.sh'
 
 # Git
 alias g='git'
+alias ga='git add'
 alias gc='git commit'
 alias gs='git status'
 alias gd='git diff'
