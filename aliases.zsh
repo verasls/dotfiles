@@ -6,7 +6,6 @@ alias ll='eza -l -a --icons'
 alias vim='nvim'
 alias v='nvim .'
 alias vf='vim $(fzf --preview "bat --style=numbers --color=always --line-range :500 {}")'
-alias sg='sgpt'
 alias aic='aicommits'
 
 # Directories
@@ -23,6 +22,7 @@ alias tmka='tmux kill-server'
 alias w='bash ~/.dotfiles/tmux_sessions.sh'
 
 # Git
+alias g='git'
 alias gst='git status'
 alias gs='git status'
 alias gl='git log --pretty=format:"%C(blue)%h%C(red)%d %C(white)%s - %C(cyan)%cn, %C(green)%cr"'
