@@ -1,13 +1,9 @@
 #!/usr/bin/env bash
 
-readarray -t project_dir <<< "$(find ~/Documents/Projects -mindepth 1 -maxdepth 1 -type d)"
-project_dir+=("~/.dotfiles")
-IFS=$'\n' dirs=($(sort -df <<< "${project_dir[*]}"))
-
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(printf "%s\n" "${dirs[@]}" | fzf)
+  selected=$(find ~/Documents/Projects -mindepth 1 -maxdepth 1 -type d -not -path "*_archived*" | sort -df | fzf)
 fi
 
 if [[ -z $selected ]]; then
