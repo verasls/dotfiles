@@ -20,7 +20,7 @@ return {
     vim.g.slime_target = "neovim"
   end,
   config = function()
-    vim.keymap.set("n", "<leader>t", ":lua StartREPL()<CR>")
+    vim.keymap.set("n", "<leader>t", ":lua StartREPL()<CR>", { silent = true })
     vim.keymap.set("n", "<Space>", "<Plug>SlimeParagraphSend")
     vim.keymap.set("v", "<Space>", "<Plug>SlimeRegionSend")
   end

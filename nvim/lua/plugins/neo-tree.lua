@@ -12,6 +12,6 @@ return {
     "MunifTanjim/nui.nvim",
   },
   config = function()
-    vim.keymap.set("n", "<C-q>", ":lua OpenNeoTree()<CR>")
+    vim.keymap.set("n", "<C-q>", ":lua OpenNeoTree()<CR>", { silent = true })
   end
 }
