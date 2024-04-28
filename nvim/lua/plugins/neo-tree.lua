@@ -1,6 +1,6 @@
 function OpenNeoTree()
   vim.cmd("Neotree")
-  vim.api.nvim_win_set_option(0, 'relativenumber', true)
+  vim.api.nvim_win_set_option(0, "relativenumber", true)
 end
 
 return {

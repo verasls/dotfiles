@@ -40,5 +40,5 @@ vim.opt.listchars = { tab = ">-" }
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-vim.cmd('autocmd BufEnter * set formatoptions-=cro')
-vim.cmd('autocmd BufEnter * setlocal formatoptions-=cro')
+vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")

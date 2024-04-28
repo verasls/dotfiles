@@ -30,6 +30,6 @@ vim.api.nvim_set_keymap("n", "bn", ":bn<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "bp", ":bp<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "bx", ":b#|bd!#<CR>", { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
+vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
-vim.api.nvim_set_keymap('n', 'nh', ':nohlsearch<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap("n", "nh", ":nohlsearch<CR>", {noremap = true, silent = true})
