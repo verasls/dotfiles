@@ -53,7 +53,6 @@ return {
           command_palette = true,
           long_message_to_split = true,
           inc_rename = false,
-          lsp_doc_border = false,
         },
         views = {
           cmdline_popup = {
@@ -61,6 +60,16 @@ return {
               row = "40%",
               column = "50%",
             }
+          },
+          hover = {
+            border = {
+              style = "rounded"
+            },
+            win_options = {
+              winhighlight = {
+                Normal = "NoiceCmdlinePopup",
+              },
+            },
           }
         }
       })
