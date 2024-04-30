@@ -107,7 +107,7 @@ return {
         vim.keymap.set("n", "gd", ":split | lua vim.lsp.buf.definition()<CR>", opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set({ "n", "v" }, "ca", vim.lsp.buf.code_action, opts)
+        vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
       end,
     })
   end
