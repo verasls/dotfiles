@@ -48,7 +48,7 @@ return {
       wiki_link_func = "use_alias_only",
       disable_frontmatter = true,
       follow_url_func = function(url)
-        vim.fn.jobstart({"open", url})
+        vim.fn.jobstart({ "open", url })
       end,
       templates = { folder = "Templates" },
       picker = {
@@ -58,7 +58,15 @@ return {
           insert_link = "<C-l>",
         },
       },
-      open_notes_in = "current"
+      open_notes_in = "current",
+      ui = {
+        checkboxes = {
+          [" "] = { char = "☐", hl_group = "ObsidianTodo" },
+          ["x"] = { char = "", hl_group = "ObsidianDone" },
+          [">"] = { char = "", hl_group = "ObsidianRightArrow" },
+          ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
+        }
+      }
     })
   end
 }
