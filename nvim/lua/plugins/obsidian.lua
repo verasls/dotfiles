@@ -58,8 +58,7 @@ return {
           insert_link = "<C-l>",
         },
       },
-      open_notes_in = "current",
-      ui = {}
+      open_notes_in = "current"
     })
   end
 }
