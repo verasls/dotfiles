@@ -31,7 +31,7 @@ return {
           end,
           opts = { noremap = false, expr = true, buffer = true },
         },
-        ["<leader>k"] = {
+        ["ck"] = {
           action = function()
             return require("obsidian").util.toggle_checkbox()
           end,
