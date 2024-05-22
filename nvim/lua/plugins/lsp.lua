@@ -105,7 +105,8 @@ return {
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = ev.buf, silent = true }
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-        vim.keymap.set("n", "gd", ":split | lua vim.lsp.buf.definition()<CR>", opts)
+        vim.keymap.set("n", "dh", ":split | lua vim.lsp.buf.definition()<CR>", opts)
+        vim.keymap.set("n", "dv", ":vsplit | lua vim.lsp.buf.definition()<CR>", opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "rn", vim.lsp.buf.rename, opts)
         vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
