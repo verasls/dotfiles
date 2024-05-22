@@ -20,7 +20,8 @@ return {
               update_in_insert = false,
               always_visible = false
             }
-          }
+          },
+          lualine_c = { { 'filename', path = 1 } }
         }
       })
     end
