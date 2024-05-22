@@ -12,7 +12,8 @@ return {
             ["<C-s>"] = "select_vertical",
             ["<C-h>"] = "select_horizontal"
           }
-        }
+        },
+        file_ignore_patterns = { "node_modules" }
       }
     })
 
