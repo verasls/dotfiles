@@ -54,6 +54,44 @@ return {
       }
     })
 
+    require("lspconfig").tailwindcss.setup({
+      settings = {
+        tailwindCSS = {
+          experimental = {
+            classRegex = {
+              { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+              { "cx\\(([^)]*)\\)",  "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+              { "cn\\(([^)]*)\\)",  "[\"'`]([^\"'`]*).*?[\"'`]" },
+              { "cn\\(([^)]*)\\)",  "(?:'|\"|`)([^'\"`]+)(?:'|\"|`)" }
+            },
+          },
+        },
+      },
+    })
+
+    -- Configure tsserver with path alias support
+    local lspconfig = require("lspconfig")
+    lspconfig.tsserver.setup({
+      capabilities = capabilities,
+      on_new_config = function(new_config)
+        new_config.init_options = new_config.init_options or {}
+        new_config.init_options.preferences = new_config.init_options.preferences or {}
+        new_config.init_options.preferences.importModuleSpecifierPreference = "non-relative"
+      end,
+      settings = {
+        typescript = {
+          preferences = {
+            importModuleSpecifierPreference = "non-relative",
+          },
+        },
+        javascript = {
+          preferences = {
+            importModuleSpecifierPreference = "non-relative",
+          },
+        },
+      },
+    })
+
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
     cmp.setup({
@@ -112,5 +150,13 @@ return {
         vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
       end,
     })
+
+    -- ESLint fix on save
+    -- if vim.fn.exists(":EslintFixAll") == 2 then
+    vim.api.nvim_create_autocmd("BufWritePre", {
+      pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
+      command = "EslintFixAll"
+    })
+    -- end
   end
 }
