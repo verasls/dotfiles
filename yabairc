@@ -4,13 +4,13 @@ yabai -m config layout bsp
 yabai -m config window_placement second_child
 
 # padding set to 8px
-yabai -m config top_padding 8
-yabai -m config bottom_padding 8
-yabai -m config left_padding 8
-yabai -m config right_padding 8
-yabai -m config window_gap 8
+yabai -m config top_padding 4
+yabai -m config bottom_padding 4
+yabai -m config left_padding 4
+yabai -m config right_padding 4
+yabai -m config window_gap 4
 # set a top padding of 20px to allow space for the menubar
-yabai -m config external_bar main:20:0
+# yabai -m config external_bar main:20:0
 
 # center mouse on window with focus
 yabai -m config mouse_follows_focus on
