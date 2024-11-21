@@ -31,7 +31,11 @@ return {
     main = "ibl",
     opts = {},
     config = function()
-      require("ibl").setup()
+      require("ibl").setup({
+        exclude = {
+          filetypes = { "dashboard" },
+        },
+      })
     end
   },
   {
