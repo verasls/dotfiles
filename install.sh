@@ -35,7 +35,7 @@ ln -s $HOME/.dotfiles/nvim $HOME/.config/nvim
 # Alacritty
 rm -rf $HOME/.config/alacritty/alacritty.yml
 if [ ! -d "$HOME/.config/alacritty" ]; then
-  mkdir "$HOME/.config/alacritty"
+  mkdir -p "$HOME/.config/alacritty"
 fi
 ln -s $HOME/.dotfiles/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 
@@ -55,15 +55,10 @@ ln -s $HOME/.dotfiles/.fzf.zsh $HOME/.fzf.zsh
 rm -rf $HOME/.Rprofile
 ln -s $HOME/.dotfiles/.Rprofile $HOME/.Rprofile
 
-# Yabai
-mkdir $HOME/.config/yabai
-rm -rf $HOME/.config/yabai/yabairc
-ln -s $HOME/.dotfiles/yabairc $HOME/.config/yabai/yabairc
-
-# Skhd
-mkdir $HOME/.config/skhd
-rm -rf $HOME/.config/skhd/skhdrc
-ln -s $HOME/.dotfiles/skhdrc $HOME/.config/skhd/skhdrc
+# Aerospace
+mkdir -p $HOME/.config/aerospace
+rm -rf $HOME/.config/aerospace/aerospace.toml
+ln -s $HOME/.dotfiles/aerospace.toml $HOME/.config/aerospace/aerospace.toml
 
 # Set macOS preferences
 source .macos
