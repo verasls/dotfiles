@@ -19,21 +19,22 @@ return {
       "force",
       {},
       vim.lsp.protocol.make_client_capabilities(),
-      cmp_lsp.default_capabilities())
+      cmp_lsp.default_capabilities()
+    )
 
     require("fidget").setup({})
     require("mason").setup()
     require("mason-lspconfig").setup({
       ensure_installed = {
-        "tsserver",
+        "ts_ls",
         "eslint",
         "lua_ls",
-        "r_language_server"
+        "r_language_server",
       },
       handlers = {
-        function(server_name) -- default handler (optional)
+        function(server_name) -- Default handler
           require("lspconfig")[server_name].setup {
-            capabilities = capabilities
+            capabilities = capabilities,
           }
         end,
 
@@ -51,8 +52,19 @@ return {
             }
           }
         end,
-      }
+      },
     })
+
+    require("lspconfig").sourcekit.setup({
+      capabilities = capabilities,
+      cmd = { "sourcekit-lsp" },
+      filetypes = { "swift", "objective-c", "objective-cpp" },
+      root_dir = function(fname)
+        return require("lspconfig").util.root_pattern("*.xcodeproj", "*.xcworkspace", ".git")(fname)
+            or vim.fn.getcwd()
+      end,
+    })
+
 
     require("lspconfig").tailwindcss.setup({
       settings = {
@@ -62,7 +74,7 @@ return {
               { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
               { "cx\\(([^)]*)\\)",  "(?:'|\"|`)([^']*)(?:'|\"|`)" },
               { "cn\\(([^)]*)\\)",  "[\"'`]([^\"'`]*).*?[\"'`]" },
-              { "cn\\(([^)]*)\\)",  "(?:'|\"|`)([^'\"`]+)(?:'|\"|`)" }
+              { "cn\\(([^)]*)\\)",  "(?:'|\"|`)([^'\"`]+)(?:'|\"|`)" },
             },
           },
         },
@@ -70,9 +82,12 @@ return {
     })
 
     -- Configure tsserver with path alias support
-    local lspconfig = require("lspconfig")
-    lspconfig.tsserver.setup({
+    require("lspconfig").ts_ls.setup({
       capabilities = capabilities,
+      on_attach = function(client)
+        client.server_capabilities.documentFormattingProvider = true
+        client.server_capabilities.documentRangeFormattingProvider = true
+      end,
       on_new_config = function(new_config)
         new_config.init_options = new_config.init_options or {}
         new_config.init_options.preferences = new_config.init_options.preferences or {}
@@ -120,7 +135,6 @@ return {
     })
 
     vim.diagnostic.config({
-      -- update_in_insert = true,
       float = {
         focusable = false,
         style = "minimal",
@@ -131,16 +145,10 @@ return {
       },
     })
 
-    -- Use LspAttach autocommand to only map the following keys
-    -- after the language server attaches to the current buffer
+    -- Use LspAttach autocommand to map keys after LSP attaches
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
-        -- Enable completion triggered by <c-x><c-o>
-        vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
-        -- Buffer local mappings.
-        -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = ev.buf, silent = true }
         vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
         vim.keymap.set("n", "dh", ":split | lua vim.lsp.buf.definition()<CR>", opts)
@@ -152,11 +160,9 @@ return {
     })
 
     -- ESLint fix on save
-    -- if vim.fn.exists(":EslintFixAll") == 2 then
     vim.api.nvim_create_autocmd("BufWritePre", {
       pattern = { "*.js", "*.jsx", "*.ts", "*.tsx" },
       command = "EslintFixAll"
     })
-    -- end
   end
 }

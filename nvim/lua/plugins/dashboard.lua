@@ -1,5 +1,6 @@
 return {
   'nvimdev/dashboard-nvim',
+  dependencies = { {'nvim-tree/nvim-web-devicons'}},
   event = 'VimEnter',
   config = function()
     require('dashboard').setup {
@@ -8,9 +9,11 @@ return {
         week_header = {
           enable = true
         },
-        disable_move = true
+        disable_move = true,
+        shortcut = {
+          { desc = 'New File ', group = '@property', action = 'enew', key = 'n' },
+        },
       }
     }
-  end,
-  dependencies = { {'nvim-tree/nvim-web-devicons'}}
+  end
 }

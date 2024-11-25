@@ -26,3 +26,7 @@ vim.api.nvim_command(
   " inoremap <buffer> ,, <Esc>:normal! a => <CR>a"
 )
 
+-- Swift
+vim.api.nvim_command(
+  "autocmd FileType swift inoremap <buffer> ,, <Esc>:normal! a -> <CR>a"
+)
