@@ -118,9 +118,9 @@ ctrl-c = 'workspace C'
 ctrl-e = 'workspace E'
 ctrl-m = 'workspace M'
 ctrl-o = 'workspace O'
-ctrl-r = 'workspace R'
 ctrl-t = 'workspace T'
 ctrl-v = 'workspace V'
+ctrl-x = 'workspace X'
 
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
@@ -204,5 +204,9 @@ if.app-id = "com.apple.Preview"
 run = "move-node-to-workspace V"
 
 [[on-window-detected]]
-if.app-id = "jan.ai.app"
-run = "move-node-to-workspace R"
+if.app-id = "app.msty.app"
+run = "move-node-to-workspace X"
+
+[[on-window-detected]]
+if.app-id = "com.apple.dt.Xcode"
+run = "move-node-to-workspace T"
