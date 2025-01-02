@@ -50,6 +50,7 @@ cask 'openinterminal'
 cask 'iterm2'
 cask 'dozer'
 cask 'zoom'
+cask 'ghostty'
 
 # Fonts
 cask 'font-fira-code'

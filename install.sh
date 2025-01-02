@@ -32,12 +32,12 @@ ln -s $HOME/.dotfiles/.mackup.cfg $HOME/.mackup.cfg
 rm -rf $HOME/.config/nvim
 ln -s $HOME/.dotfiles/nvim $HOME/.config/nvim
 
-# Alacritty
-rm -rf $HOME/.config/alacritty/alacritty.yml
-if [ ! -d "$HOME/.config/alacritty" ]; then
-  mkdir -p "$HOME/.config/alacritty"
+# Ghostty
+rm -rf $HOME/.config/ghostty/config
+if [ ! -d "$HOME/.config/ghostty" ]; then
+  mkdir -p "$HOME/.config/ghostty"
 fi
-ln -s $HOME/.dotfiles/alacritty.yml $HOME/.config/alacritty/alacritty.yml
+ln -s $HOME/.dotfiles/ghostty-config $HOME/.config/ghostty/config
 
 # Tmux
 rm -rf $HOME/.tmux.conf
