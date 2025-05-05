@@ -114,14 +114,11 @@ ctrl-7 = 'workspace 7'
 ctrl-8 = 'workspace 8'
 ctrl-9 = 'workspace 9'
 ctrl-b = 'workspace B'
-ctrl-c = 'workspace C'
 ctrl-e = 'workspace E'
 ctrl-m = 'workspace M'
 ctrl-o = 'workspace O'
 ctrl-t = 'workspace T'
 ctrl-v = 'workspace V'
-ctrl-x = 'workspace X'
-
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 ctrl-shift-1 = 'move-node-to-workspace 1'
@@ -161,6 +158,8 @@ alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
 alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
+cmd-shift-f = 'layout floating tiling'
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
 alt-s = 'mode service'
 
@@ -184,29 +183,21 @@ if.app-id = "com.apple.finder"
 run = "move-node-to-workspace E"
 
 [[on-window-detected]]
-if.app-id = "company.thebrowser.Browser"
+if.app-id = "app.zen-browser.zen"
 run = "move-node-to-workspace B"
 
 [[on-window-detected]]
-if.app-id = "md.obsidian"
+if.app-id = "notion.id"
 run = "move-node-to-workspace O"
 
 [[on-window-detected]]
-if.app-id = "org.alacritty"
-run = "move-node-to-workspace C"
+if.app-id = "com.mitchellh.ghostty"
+run = "move-node-to-workspace T"
 
 [[on-window-detected]]
-if.app-id = "com.readdle.SparkDesktop.appstore"
+if.app-id = "notion.mail.id"
 run = "move-node-to-workspace M"
 
 [[on-window-detected]]
 if.app-id = "com.apple.Preview"
 run = "move-node-to-workspace V"
-
-[[on-window-detected]]
-if.app-id = "app.msty.app"
-run = "move-node-to-workspace X"
-
-[[on-window-detected]]
-if.app-id = "com.apple.dt.Xcode"
-run = "move-node-to-workspace T"
