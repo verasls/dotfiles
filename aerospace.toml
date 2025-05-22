@@ -199,5 +199,13 @@ if.app-id = "notion.mail.id"
 run = "move-node-to-workspace M"
 
 [[on-window-detected]]
+if.app-id = "com.microsoft.Outlook"
+run = "move-node-to-workspace M"
+
+[[on-window-detected]]
 if.app-id = "com.apple.Preview"
 run = "move-node-to-workspace V"
+
+[[on-window-detected]]
+if.app-id = "com.raycast.macos"
+run = "layout floating"
