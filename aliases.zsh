@@ -38,3 +38,4 @@ alias ipy='ipython'
 
 # R
 alias R='R --no-save'
+alias r='radian'
