@@ -20,6 +20,10 @@ vim.api.nvim_command(
   "autocmd FileType r nnoremap <buffer> <leader>s :lua CreateSection()<CR>"
 )
 
+vim.api.nvim_command(
+  "autocmd FileType r nnoremap <buffer> <leader>f :silent !air format %<CR>"
+)
+
 -- Javascript/Typescript
 vim.api.nvim_command(
   "autocmd FileType javascript,typescript,typescriptreact" ..
