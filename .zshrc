@@ -45,9 +45,6 @@ fi
 PATH="/usr/local/opt/python@3.11/libexec/bin:${PATH}"
 export PATH
 
-# Enable syntax highlighting
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Setting path to R
 PATH="/Library/Frameworks/R.framework/Resources:${PATH}"
 export PATH
@@ -56,5 +53,11 @@ export HOMEBREW_GITHUB_API_TOKEN=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
 # Configure fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+source /Users/lucasveras/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+. "$HOME/.local/bin/env"
