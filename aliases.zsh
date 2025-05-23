@@ -10,7 +10,7 @@ alias aic='aicommits'
 
 # Directories
 alias dot='cd $DOTFILES'
-alias prj='cd $HOME/Documents/Projects'
+alias prj='cd $HOME/projects'
 
 # Tmux
 alias tm='tmux'

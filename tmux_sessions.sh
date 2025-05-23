@@ -3,7 +3,7 @@
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find ~/Documents/Projects -mindepth 1 -maxdepth 1 -type d -not -path "*_archived*" | sort -df | fzf)
+  selected=$(find ~/projects -mindepth 1 -maxdepth 1 -type d -not -path "*_archived*" | sort -df | fzf)
 fi
 
 if [[ -z $selected ]]; then
