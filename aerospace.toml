@@ -183,7 +183,7 @@ if.app-id = "com.apple.finder"
 run = "move-node-to-workspace E"
 
 [[on-window-detected]]
-if.app-id = "app.zen-browser.zen"
+if.app-id = "com.apple.Safari"
 run = "move-node-to-workspace B"
 
 [[on-window-detected]]
