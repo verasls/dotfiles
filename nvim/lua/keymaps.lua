@@ -8,9 +8,9 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 vim.keymap.set(
   'n',
-  '<leader>q',
+  '<leader>d',
   vim.diagnostic.setloclist,
-  { desc = 'Open diagnostic [Q]uickfix list' }
+  { desc = 'Open [D]iagnostics' }
 )
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
