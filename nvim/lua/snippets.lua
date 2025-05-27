@@ -27,7 +27,7 @@ ls.add_snippets('r', {
 })
 
 -- R assignment operator
-ls.add_snippets('r', {
+ls.add_snippets('all', {
   s(',,', {
     t '<- ',
     i(0),
@@ -35,7 +35,7 @@ ls.add_snippets('r', {
 })
 
 -- R pipe operator
-ls.add_snippets('r', {
+ls.add_snippets('all', {
   s('>>', {
     t '|>',
     i(0),
