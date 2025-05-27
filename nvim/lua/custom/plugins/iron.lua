@@ -9,7 +9,7 @@ return {
           repl_definition = {
             R = { command = { 'radian' } },
             r = { command = { 'radian' } },
-            quarto = { command = { 'radian' } },
+            python = { command = { 'ipython' } },
           },
           repl_open_cmd = require('iron.view').split.vertical.botright '50%',
         },
