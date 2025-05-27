@@ -11,6 +11,17 @@ return {
       },
     },
   },
+  { -- for lsp features in code cells / embedded code
+    'jmbuhr/otter.nvim',
+    dev = false,
+    dependencies = {
+      {
+        'neovim/nvim-lspconfig',
+        'nvim-treesitter/nvim-treesitter',
+      },
+    },
+    opts = {},
+  },
   {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
@@ -261,6 +272,7 @@ return {
         },
         -- R
         air = {
+          filetypes = { 'r', 'rmd', 'rmarkdown' },
           on_attach = function(_, bufnr)
             vim.api.nvim_create_autocmd('BufWritePre', {
               buffer = bufnr,
@@ -271,6 +283,7 @@ return {
           end,
         },
         r_language_server = {
+          filetypes = { 'r', 'rmd', 'rmarkdown' },
           on_attach = function(client, _)
             client.server_capabilities.documentFormattingProvider = false
             client.server_capabilities.documentRangeFormattingProvider = false
