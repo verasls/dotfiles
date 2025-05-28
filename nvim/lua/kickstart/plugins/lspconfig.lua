@@ -272,6 +272,7 @@ return {
         },
         -- R
         air = {
+          capabilities = capabilities,
           filetypes = { 'r', 'rmd', 'rmarkdown' },
           on_attach = function(_, bufnr)
             vim.api.nvim_create_autocmd('BufWritePre', {
@@ -283,6 +284,7 @@ return {
           end,
         },
         r_language_server = {
+          capabilities = capabilities,
           filetypes = { 'r', 'rmd', 'rmarkdown' },
           on_attach = function(client, _)
             client.server_capabilities.documentFormattingProvider = false
@@ -290,17 +292,41 @@ return {
           end,
         },
         -- python
-        pyright = {},
+        pyright = {
+          capabilities = capabilities,
+        },
         -- markdown
-        marksman = {},
+        marksman = {
+          capabilities = capabilities,
+        },
         -- latex
-        texlab = {},
+        texlab = {
+          capabilities = capabilities,
+          filetypes = { 'tex', 'plaintex', 'latex', 'quarto' },
+        },
         -- web
-        prettier = {},
-        ts_ls = {},
-        tailwindcss = {},
+        prettier = {
+          capabilities = capabilities,
+        },
+        ts_ls = {
+          capabilities = capabilities,
+        },
+        tailwindcss = {
+          capabilities = capabilities,
+        },
         -- YAML
-        yamlls = {},
+        yamlls = {
+          capabilities = capabilities,
+          filetypes = { 'yaml', 'quarto' },
+          settings = {
+            yaml = {
+              schemaStore = {
+                enable = true,
+                url = '',
+              },
+            },
+          },
+        },
       }
 
       -- Ensure the servers and tools above are installed
@@ -325,14 +351,14 @@ return {
       }
 
       require('mason-lspconfig').setup {
-        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
+        ensure_installed = {},
         automatic_installation = false,
+        automatic_enable = true,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for ts_ls)
+            print('Configuring LSP: ' .. server_name)
+            print(vim.inspect(server))
             server.capabilities = vim.tbl_deep_extend(
               'force',
               {},
