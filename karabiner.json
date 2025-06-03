@@ -25,7 +25,7 @@
             "selected": true,
             "simple_modifications": [
                 {
-                    "from": { "key_code": "right_command" },
+                    "from": { "key_code": "right_option" },
                     "to": [{ "key_code": "left_control" }]
                 }
             ],
