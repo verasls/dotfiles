@@ -7,8 +7,8 @@ return {
         config = {
           scratch_repl = true,
           repl_definition = {
-            R = { command = { 'radian' } },
-            r = { command = { 'radian' } },
+            R = { command = { 'R' } },
+            r = { command = { 'R' } },
             python = { command = { 'ipython' } },
           },
           repl_open_cmd = require('iron.view').split.vertical.botright '50%',
