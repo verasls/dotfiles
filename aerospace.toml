@@ -195,7 +195,7 @@ if.app-id = "com.mitchellh.ghostty"
 run = "move-node-to-workspace T"
 
 [[on-window-detected]]
-if.app-id = "notion.mail.id"
+if.app-id = "com.readdle.SparkDesktop"
 run = "move-node-to-workspace M"
 
 [[on-window-detected]]
