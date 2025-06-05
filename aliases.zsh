@@ -23,6 +23,7 @@ alias tmka='tmux kill-server'
 alias w='bash ~/.dotfiles/tmux_sessions.sh'
 
 # Git
+alias lg='lazygit'
 alias g='git'
 alias ga='git add'
 alias gc='git commit'
