@@ -1,5 +1,5 @@
 # Path to your dotfiles.
-export DOTFILES=$HOME/.dotfiles
+export DOTFILES=$HOME/projects/.dotfiles
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -26,7 +26,7 @@ HIST_STAMPS="yyyy-mmm-dd"
 ZSH_CUSTOM=$DOTFILES
 
 source $ZSH/oh-my-zsh.sh
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting)
 
 # User configuration
 # You may need to manually set your language environment
@@ -40,24 +40,13 @@ else
   export EDITOR='vim'
 fi
 
-# Setting PATH for Python
-# The original version is saved in .bash_profile.pysave
-PATH="/usr/local/opt/python@3.11/libexec/bin:${PATH}"
-export PATH
-
-# Setting path to R
-PATH="/Library/Frameworks/R.framework/Resources:${PATH}"
-export PATH
-export HOMEBREW_GITHUB_API_TOKEN=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
-
 # Configure fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 eval "$(starship init zsh)"
-source /Users/lucasveras/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-. "$HOME/.local/bin/env"
+source $HOME/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
