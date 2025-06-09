@@ -13,22 +13,22 @@ require('lazy').setup({
   -- Use `opts = {}` to automatically pass options to a plugin's `setup()` function, forcing the plugin to be loaded.
   -- modular approach: using `require 'path/name'` will
   -- include a plugin definition from file lua/path/name.lua
-  require 'kickstart/plugins/gitsigns',
-  require 'kickstart/plugins/which-key',
-  require 'kickstart/plugins/telescope',
-  require 'kickstart/plugins/conform',
-  require 'kickstart/plugins/blink-cmp',
-  require 'kickstart/plugins/colorscheme',
-  require 'kickstart/plugins/todo-comments',
-  require 'kickstart/plugins/mini',
-  require 'kickstart/plugins/treesitter',
-  require 'kickstart/plugins/debug',
-  require 'kickstart/plugins/indent_line',
-  require 'kickstart/plugins/lint',
-  require 'kickstart/plugins/autopairs',
-  require 'kickstart/plugins/neo-tree',
+  require 'plugins/gitsigns',
+  require 'plugins/which-key',
+  require 'plugins/telescope',
+  require 'plugins/conform',
+  require 'plugins/blink-cmp',
+  require 'plugins/colorscheme',
+  require 'plugins/todo-comments',
+  require 'plugins/mini',
+  require 'plugins/treesitter',
+  require 'plugins/debug',
+  require 'plugins/indent_line',
+  require 'plugins/lint',
+  require 'plugins/autopairs',
+  require 'plugins/neo-tree',
 
-  { import = 'custom.plugins' },
+  { import = 'plugins' },
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!
   -- In normal mode type `<space>sh` then write `lazy.nvim-plugin`
