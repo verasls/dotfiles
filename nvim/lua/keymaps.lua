@@ -116,3 +116,10 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.hl.on_yank()
   end,
 })
+
+-- [[ Language specific ]]
+
+-- R
+vim.api.nvim_command 'autocmd FileType r,rmd,quarto inoremap <buffer> >> <Esc>:normal! a <Bar>><CR>a'
+
+vim.api.nvim_command 'autocmd FileType r,rmd,quarto inoremap <buffer> ,, <Esc>:normal! a <- <CR>a'

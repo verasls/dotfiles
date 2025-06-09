@@ -5,7 +5,7 @@ return {
     dependencies = {
       'rafamadriz/friendly-snippets',
       'nvim-tree/nvim-web-devicons',
-      'L3MON4D3/LuaSnip',
+      { 'L3MON4D3/LuaSnip', version = 'v2.*' },
     },
 
     -- use a release tag to download pre-built binaries
@@ -14,6 +14,7 @@ return {
     ---@type blink.cmp.Config
     opts = {
       keymap = { preset = 'default' },
+      snippets = { preset = 'luasnip' },
 
       appearance = {
         -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'

@@ -6,7 +6,6 @@ local i = ls.insert_node
 local f = ls.function_node
 
 -- R code section
-
 ls.add_snippets('r', {
   s('sect', {
     t '# ',
@@ -23,22 +22,6 @@ ls.add_snippets('r', {
       end
       return string.rep('-', dash_count)
     end, { 1 }),
-  }),
-})
-
--- R assignment operator
-ls.add_snippets('all', {
-  s(',,', {
-    t '<- ',
-    i(0),
-  }),
-})
-
--- R pipe operator
-ls.add_snippets('all', {
-  s('>>', {
-    t '|>',
-    i(0),
   }),
 })
 
