@@ -9,6 +9,7 @@ return {
           repl_definition = {
             R = { command = { 'R' } },
             r = { command = { 'R' } },
+            quarto = { command = { 'R' } },
             python = { command = { 'ipython' } },
           },
           repl_open_cmd = require('iron.view').split.vertical.botright '50%',
