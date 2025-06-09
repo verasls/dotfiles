@@ -20,7 +20,7 @@ alias tmd='tmux detach'
 alias tmls='tmux list-sessions'
 alias tmk='tmux kill-session'
 alias tmka='tmux kill-server'
-alias w='bash ~/.dotfiles/tmux_sessions.sh'
+alias w='bash ~/projects/.dotfiles/tmux_sessions.sh'
 
 # Git
 alias lg='lazygit'
