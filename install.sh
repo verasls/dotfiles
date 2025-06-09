@@ -18,6 +18,10 @@ brew update
 brew tap homebrew/bundle
 brew bundle
 
+# Git
+rm -f "$HOME/.gitconfig"
+ln -s "$DOTFILES/.config" "$HOME/.gitconfig"
+
 # Zsh
 rm -f "$HOME/.zshrc"
 ln -s "$DOTFILES/.zshrc" "$HOME/.zshrc"
