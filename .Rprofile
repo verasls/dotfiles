@@ -24,5 +24,3 @@ options(
 
 # General options
 options(max.print = 999)
-suppressPackageStartupMessages(require(colorout))
-setOutputColors(normal = 252, verbose = FALSE)
