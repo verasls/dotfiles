@@ -7,9 +7,9 @@ return {
         config = {
           scratch_repl = true,
           repl_definition = {
-            R = { command = { 'R' } },
-            r = { command = { 'R' } },
-            quarto = { command = { 'R' } },
+            R = { command = { 'R', '--no-save' } },
+            r = { command = { 'R', '--no-save' } },
+            quarto = { command = { 'R --no-save' } },
             python = { command = { 'ipython' } },
           },
           repl_open_cmd = require('iron.view').split.vertical.botright '50%',
