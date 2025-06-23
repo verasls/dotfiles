@@ -115,8 +115,11 @@ ctrl-8 = 'workspace 8'
 ctrl-9 = 'workspace 9'
 ctrl-b = 'workspace B'
 ctrl-e = 'workspace E'
+ctrl-f = 'workspace F'
+ctrl-g = 'workspace G'
 ctrl-m = 'workspace M'
 ctrl-o = 'workspace O'
+ctrl-r = 'workspace R'
 ctrl-t = 'workspace T'
 ctrl-v = 'workspace V'
 
@@ -132,8 +135,11 @@ ctrl-shift-8 = 'move-node-to-workspace 8'
 ctrl-shift-9 = 'move-node-to-workspace 9'
 ctrl-shift-b = 'move-node-to-workspace B'
 ctrl-shift-e = 'move-node-to-workspace E'
+ctrl-shift-f = 'move-node-to-workspace F'
+ctrl-shift-g = 'move-node-to-workspace G'
 ctrl-shift-m = 'move-node-to-workspace M'
 ctrl-shift-o = 'move-node-to-workspace O'
+ctrl-shift-r = 'move-node-to-workspace R'
 ctrl-shift-t = 'move-node-to-workspace T'
 ctrl-shift-v = 'move-node-to-workspace V'
 
@@ -163,28 +169,40 @@ alt-shift-l = ['join-with right', 'mode main']
 
 # Automatically move windows to specific workspaces
 [[on-window-detected]]
-if.app-id = "com.apple.finder"
-run = "move-node-to-workspace E"
-
-[[on-window-detected]]
 if.app-id = "com.apple.Safari"
 run = "move-node-to-workspace B"
 
 [[on-window-detected]]
-if.app-id = "notion.id"
-run = "move-node-to-workspace O"
+if.app-id = "com.apple.iCal"
+run = "move-node-to-workspace E"
+
+[[on-window-detected]]
+if.app-id = "com.apple.finder"
+run = "move-node-to-workspace F"
 
 [[on-window-detected]]
 if.app-id = "com.mitchellh.ghostty"
-run = "move-node-to-workspace T"
+run = "move-node-to-workspace G"
+
+[[on-window-detected]]
+if.app-id = "com.microsoft.Outlook"
+run = "move-node-to-workspace M"
 
 [[on-window-detected]]
 if.app-id = "com.readdle.SparkDesktop"
 run = "move-node-to-workspace M"
 
 [[on-window-detected]]
-if.app-id = "com.microsoft.Outlook"
-run = "move-node-to-workspace M"
+if.app-id = "notion.id"
+run = "move-node-to-workspace O"
+
+[[on-window-detected]]
+if.app-id = "org.zotero.zotero"
+run = "move-node-to-workspace R"
+
+[[on-window-detected]]
+if.app-id = "com.culturedcode.ThingsMac"
+run = "move-node-to-workspace T"
 
 [[on-window-detected]]
 if.app-id = "com.apple.Preview"
@@ -193,3 +211,15 @@ run = "move-node-to-workspace V"
 [[on-window-detected]]
 if.app-id = "com.raycast.macos"
 run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = "com.microsoft.Word"
+run = "move-node-to-workspace 1"
+
+[[on-window-detected]]
+if.app-id = "com.microsoft.Excel"
+run = "move-node-to-workspace 1"
+
+[[on-window-detected]]
+if.app-id = "com.microsoft.Powerpoint"
+run = "move-node-to-workspace 1"
