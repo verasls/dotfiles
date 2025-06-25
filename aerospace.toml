@@ -193,7 +193,7 @@ if.app-id = "com.readdle.SparkDesktop"
 run = "move-node-to-workspace M"
 
 [[on-window-detected]]
-if.app-id = "notion.id"
+if.app-id = "md.obsidian"
 run = "move-node-to-workspace O"
 
 [[on-window-detected]]
