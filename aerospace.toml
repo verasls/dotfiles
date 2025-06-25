@@ -201,7 +201,7 @@ if.app-id = "org.zotero.zotero"
 run = "move-node-to-workspace R"
 
 [[on-window-detected]]
-if.app-id = "com.culturedcode.ThingsMac"
+if.app-id = "com.todoist.mac.Todoist"
 run = "move-node-to-workspace T"
 
 [[on-window-detected]]
