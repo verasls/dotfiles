@@ -117,9 +117,9 @@ ctrl-b = 'workspace B'
 ctrl-e = 'workspace E'
 ctrl-f = 'workspace F'
 ctrl-g = 'workspace G'
+ctrl-i = 'workspace I'
 ctrl-m = 'workspace M'
 ctrl-o = 'workspace O'
-ctrl-r = 'workspace R'
 ctrl-t = 'workspace T'
 ctrl-v = 'workspace V'
 
@@ -137,9 +137,9 @@ ctrl-shift-b = 'move-node-to-workspace B'
 ctrl-shift-e = 'move-node-to-workspace E'
 ctrl-shift-f = 'move-node-to-workspace F'
 ctrl-shift-g = 'move-node-to-workspace G'
+ctrl-shift-i = 'move-node-to-workspace I'
 ctrl-shift-m = 'move-node-to-workspace M'
 ctrl-shift-o = 'move-node-to-workspace O'
-ctrl-shift-r = 'move-node-to-workspace R'
 ctrl-shift-t = 'move-node-to-workspace T'
 ctrl-shift-v = 'move-node-to-workspace V'
 
@@ -185,6 +185,10 @@ if.app-id = "com.mitchellh.ghostty"
 run = "move-node-to-workspace G"
 
 [[on-window-detected]]
+if.app-id = "org.zotero.zotero"
+run = "move-node-to-workspace I"
+
+[[on-window-detected]]
 if.app-id = "com.microsoft.Outlook"
 run = "move-node-to-workspace M"
 
@@ -197,20 +201,12 @@ if.app-id = "md.obsidian"
 run = "move-node-to-workspace O"
 
 [[on-window-detected]]
-if.app-id = "org.zotero.zotero"
-run = "move-node-to-workspace R"
-
-[[on-window-detected]]
 if.app-id = "com.todoist.mac.Todoist"
 run = "move-node-to-workspace T"
 
 [[on-window-detected]]
 if.app-id = "com.apple.Preview"
 run = "move-node-to-workspace V"
-
-[[on-window-detected]]
-if.app-id = "com.raycast.macos"
-run = "layout floating"
 
 [[on-window-detected]]
 if.app-id = "com.microsoft.Word"
@@ -223,3 +219,7 @@ run = "move-node-to-workspace 1"
 [[on-window-detected]]
 if.app-id = "com.microsoft.Powerpoint"
 run = "move-node-to-workspace 1"
+
+[[on-window-detected]]
+if.app-id = "com.raycast.macos"
+run = "layout floating"
